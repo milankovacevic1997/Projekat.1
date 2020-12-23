@@ -1,5 +1,5 @@
 from korisnici.korisnici import prijava, registracija, ispis_korisnika
-from knjige.knjige import sortirane_knjige, pretrazi_knjige
+from knjige.knjige import sortirane_knjige, pretrazi_knjige, dodavanje_knjiga, brisanje_knjige
 from akcije.akcije import pretrazi_akcije, ispisi_akcije, registracija_akcije
 
 
@@ -26,22 +26,19 @@ def meni_administrator():
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
-            print("Nemate dozvolu za ovu komandu")
-            meni_administrator()
+            ispisi_akcije()
         elif stavka == 4:
-            print("Nemate dozvolu za ovu komandu")
-            meni_administrator()
+            pretrazi_akcije()
         elif stavka == 5:
             registracija()
         elif stavka == 6:
             ispis_korisnika(korisnici)
         elif stavka == 7:
-            dodavanje_knjige()
+            dodavanje_knjiga()
         elif stavka == 8:
             izmena_knjige()
         elif stavka == 9:
-            print("Nemate dozvolu za ovu komandu")
-            meni_administrator()
+            brisanje_knjige()
         elif stavka == 0:
             return
         else:
@@ -69,8 +66,7 @@ def meni_menadzer():
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
-            print("Nemate dozvolu za ovu komandu")
-            meni_menadzer()
+            ispisi_akcije()
         elif stavka == 4:
             registracija_akcije()
         elif stavka == 5:
@@ -78,12 +74,12 @@ def meni_menadzer():
         elif stavka == 6:
             ispis_korisnika(korisnici)
         elif stavka == 7:
-            dodavanje_knjige()
+            dodavanje_knjiga()
         elif stavka == 8:
             izmena_knjige()
         elif stavka == 9:
             print("Nemate dozvolu za ovu komandu")
-            meni_administrator()
+            meni_menadzer()
         elif stavka == 0:
             return
         else:
@@ -117,13 +113,11 @@ def meni_prodavac():
         elif stavka == 5:
             prodaja()
         elif stavka == 6:
-            dodavanje_knjige()
+            dodavanje_knjiga()
         elif stavka == 7:
             izmena_knjige()
         elif stavka == 8:
-            print("Nemate dozvolu za ovu komandu")
-            meni_prodavac()
-
+            brisanje_knjige()
         elif stavka == 0:
             return
         else:

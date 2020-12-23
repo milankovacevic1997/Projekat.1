@@ -1,5 +1,5 @@
 from knjige.knjigeIO import ucitaj_knjige
-
+import re
 
 
 knjige = ucitaj_knjige()
@@ -157,3 +157,74 @@ def ispisi_knjige(knjige):
                        f"{knjiga['cena']:^20}" \
                        f"{knjiga['kategorija']:^10}"
             print(za_ispis)
+
+def  dodavanje_knjiga():
+    global sifra
+    for knjiga in knjige:
+        sifra=knjiga['sifra']
+    sifra+=1
+    naslov=input('naslov:')
+    autor=input('autor:')
+    isbn=input('isbn:')
+    izdavac=input('izdavac:')
+    godina=int(input('godina:'))
+    cena=float(input('cena:'))
+    broj_strana=int(input('broj strana:'))
+    kategorija=input('kategorija:')
+    nova_knjiga={
+        "sifra": 3,
+        "naslov": "Knjiga 1",
+        "autor": "Pera Peric",
+        "isbn": "1312312312312",
+        "izdavac": "Vulkan",
+        "broj strana": "231",
+        "godina": 2020,
+        "cena": 650.0,
+        "kategorija": "Roman"
+    }
+    nova_knjiga['sifra'] = sifra
+    nova_knjiga['naslov']= naslov
+    nova_knjiga['autor']=autor
+    nova_knjiga['isbn']=isbn
+    nova_knjiga['izdavac']=izdavac
+    nova_knjiga['broj strana']=broj_strana
+    nova_knjiga['godina']=godina
+    nova_knjiga['cena']=cena
+    nova_knjiga['kategorija']=kategorija
+
+    knjige.append(nova_knjiga)
+    sacuvaj_knjige(knjige)
+    print('%s je dodata u bazu podataka. Knjiga sifra=[%s]' %(nova_knjiga['naslov'], nova_knjiga['sifra']))
+    return False
+
+def brisanje_knjige():
+    z = -1
+    i = 0
+    while True:
+        sifra=input("\nUnesite sifru knjige koju zelite da obrisete (upucajte nazad za povratak):")
+        if sifra=='nazad':
+            return False
+        elif sifra != '':
+            greska=re.search(' ',sifra)
+            if greska== None:
+                break
+            else:
+                print("sifra ne sme da sadrzi razmak,pokusaj ponovo")
+                return
+
+    for knjiga in knjige:
+        if knjiga['sifra']==sifra:
+            print("Knjiga je pronadjenja")
+            z=i
+            break
+            i+=1
+        if z==-1:
+            print("knjiga nije pronadjena, pokusaj ponovo!")
+            if brisanje_knjige()==False:
+                return False
+    obrisane_knjige=[knjige[z]]
+    print('\nKnjiga se brise!')
+    ispisi_knjige(obrisane_knjige)
+    sacuvaj_knjige(knjige)
+    print('%s je dodata u bazu podataka. Knjiga sifra=[%s]' % (obrisane_knjige['naslov'], obrisane_knjige['sifra']))
+    return False

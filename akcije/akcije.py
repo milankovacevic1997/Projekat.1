@@ -1,5 +1,5 @@
-from akcije.akcijeIO import ucitaj_akcije
-from knjige.knjigeIO import ucitaj_knjige, sacuvaj_knjige
+from akcije.akcijeIO import ucitaj_akcije, sacuvaj_akcije
+from knjige.knjigeIO import ucitaj_knjige
 
 akcije=ucitaj_akcije()
 n=len(akcije)
@@ -116,7 +116,7 @@ def sortirane_akcije():
         print("Pogresan unos!")
     ispisi_akcije()
 
-def ispisi_akcije(akcije):
+def ispisi_akcije():
 
     zaglavlje = f"{'sifra':<15}" \
                 f"{'artikli':<45}" \
@@ -138,38 +138,21 @@ def  registracija_akcije():
     for akcija in akcije:
         sifra=akcija['sifra']
     sifra+=1
-    naslov=input('naslov:')
-    autor=input('autor:')
-    isbn=input('isbn:')
-    izdavac=input('izdavac:')
-    godina=int(input('godina:'))
-    cena=float(input('cena'))
-    broj_strana=int(input('broj strana:'))
-    kategorija=input('kategorija:')
-    nova_knjiga={
+    artikli=input('artikli:')
+    cena=float(input('cena:'))
+    datum_vazenja=int(input('datum_vazenja:'))
+    nova_akcija={
         "sifra": 3,
-        "naslov": "Knjiga 1",
-        "autor": "Pera Peric",
-        "isbn": "1312312312312",
-        "izdavac": "Vulkan",
-        "broj strana": "231",
-        "godina": 2020,
+        "artikli": "Knjiga 1",
         "cena": 650.0,
-        "kategorija": "Roman"
+        "datum_vazenja": "20.12.2020."
     }
-    nova_knjiga['sifra'] = sifra
-    nova_knjiga['naslov']= naslov
-    nova_knjiga['autor']=autor
-    nova_knjiga['isbn']=isbn
-    nova_knjiga['izdavac']=izdavac
-    nova_knjiga['broj strana']=broj_strana
-    nova_knjiga['godina']=godina
-    nova_knjiga['cena']=cena
-    nova_knjiga['kategorija']=kategorija
+    nova_akcija['sifra'] = sifra
+    nova_akcija['artikli']= artikli
+    nova_akcija['cena']=cena
+    nova_akcija['datum_vazenja']=datum_vazenja
 
-    knjige.append(nova_knjiga)
-    sacuvaj_knjige(knjige)
-    print('%s je dodata u bazu podataka. Knjiga sifra=[%s]' %(nova_knjiga['naslov'], nova_knjiga['sifra']))
+    akcije.append(nova_akcija)
+    sacuvaj_akcije(akcije)
+    print('%s je dodata u bazu podataka. Sifra akcije =[%s]' %(nova_akcija['naslov'], nova_akcija['sifra']))
     return False
-
-
