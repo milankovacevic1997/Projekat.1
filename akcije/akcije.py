@@ -78,7 +78,7 @@ def pretrazi_akcije():
     else:
         print("Pogresan unos")
 
-    ispisi_akcije(akcije)
+    ispisi_akcije()
 
 
 def sortiraj_akcije(kljuc):
