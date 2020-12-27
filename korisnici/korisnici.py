@@ -13,7 +13,25 @@ def prijava():
         if korisnik['korisnicko_ime'] == korisncko_ime and korisnik['lozinka'] == lozinka:
             return korisnik
             print("Dobrodosli!")
+        else:
+            print("Tog korisnika nema u bazi podataka. Pokusajte ponovo!")
+            return prijava()
     return None
+
+def ispis_korisnika(korisnici):
+    korisnici=ucitaj_korisnike()
+    zaglavlje = f"{'ime':<20}" \
+                f"{'prezime':<20}" \
+                f"{'tip korisnika':<20}"
+
+    print(zaglavlje)
+    print("-" * len(zaglavlje))
+
+    for korisnik in korisnici:
+        za_ispis = f"{korisnik['ime']:<20}" \
+                   f"{korisnik['prezime']:<20}" \
+                   f"{korisnik['tip_korisnika']:<20}"
+        print(za_ispis)
 
 def unos_sa_proverom(poruka, naziv_unosa="Unos"):
     while True:
@@ -26,21 +44,6 @@ def unos_sa_proverom(poruka, naziv_unosa="Unos"):
                 print(f"{naziv_unosa} ne sme da sadrzi razmake!")
         else:
             print(f"{naziv_unosa} ne sme biti prazan!")
-
-def ispis_korisnika(korisnici):
-    korisnici=ucitaj_korisnike()
-    zaglavlje = f"{'ime':<10}" \
-                f"{'prezime':<20}" \
-                f"{'tip_korisnika':<20}"
-
-    print(zaglavlje)
-    print("-" * len(zaglavlje))
-
-    for korisnik in korisnici:
-        za_ispis = f"{korisnik['ime']:<10}" \
-                   f"{korisnik['prezime']:<20}" \
-                   f"{korisnik['tip_korisnika']:<20}"
-        print(za_ispis)
 
 def registracija():
     korisnici = ucitaj_korisnike()

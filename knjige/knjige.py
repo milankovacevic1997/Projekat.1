@@ -1,4 +1,4 @@
-from knjige.knjigeIO import ucitaj_knjige
+from knjige.knjigeIO import ucitaj_knjige, sacuvaj_knjige
 import re
 
 
@@ -193,6 +193,98 @@ def  dodavanje_knjiga():
     nova_knjiga['kategorija']=kategorija
 
     knjige.append(nova_knjiga)
+    sacuvaj_knjige(knjige)
+    print('%s je dodata u bazu podataka. Knjiga sifra=[%s]' %(nova_knjiga['naslov'], nova_knjiga['sifra']))
+    return False
+
+def izmena_knjige():
+    unos = 0
+    sifra = input("\n Unesi sifru knjige (unesi 'nazad' za povratak):")
+    i=0
+    for knjiga in knjige:
+        if knjige['sifra']==sifra:
+            unos=1
+            print("Knjiga pronadjena!")
+            break
+        elif sifra=='nazad':
+            return False
+        i+=1
+    if unos==0:
+        print("Knjiga nije pronadjena, pokusaj opet!")
+        if izmena_knjiga()==False:
+            return False
+
+    stara_knjiga={
+    "sifra": 3,
+    "naslov": "Knjiga 1",
+    "autor": "Pera Peric",
+    "isbn": "1312312312312",
+    "izdavac": "Vulkan",
+    "broj strana": "231",
+    "godina": 2020,
+    "cena": 650.0,
+    "kategorija": "Roman"}
+    stara_knjiga=knjige[i]
+    z=1
+    stara_knjiga=[stara_knjiga]
+    ispisi_knjige(stara_knjiga)
+
+    naslov=input("\n Izmena naslova!")
+    if naslov=='':
+        naslov=knjige[i]['naslov']
+    autor=input("\n Izmena autora!")
+    if autor=='':
+        autor=knjige[i]['autor']
+    isbn=input("\n Izmena isbn!")
+    if isbn=='':
+        isbn=knjige[i]['isbn']
+    izdavac=input("\n Izmena izdavaca!")
+    if izdavac=='':
+        izdavac=knjige[i]['izdavac']
+    try:
+        broj_strana=int(input("\nIzmena broja strana:"))
+    except ValueError:
+        broj_strana=knjige[i]['broj strana']
+    try:
+        godina=int(input("\nizmena godine:"))
+    except ValueError:
+        godina=knjige[i]['godina']
+    try:
+        cena=float(input("\n Izmena cene!"))
+    except ValueError:
+        cena=knjige[i]['cena']
+
+    kategorija=input("\n Izmena kategorije!")
+    if kategorija=='':
+        kategorija=knjige[i]['kategorija']
+    brisanje=knjige[i]['brisanje']
+    nova_knjiga={
+    "sifra": 3,
+    "naslov": "Knjiga 1",
+    "autor": "Pera Peric",
+    "isbn": "1312312312312",
+    "izdavac": "Vulkan",
+    "broj strana": "231",
+    "godina": 2020,
+    "cena": 650.0,
+    "kategorija": "Roman",
+    "brisanje": False
+    }
+    nova_knjiga['sifra'] = sifra
+    nova_knjiga['naslov']= naslov
+    nova_knjiga['autor']=autor
+    nova_knjiga['isbn']=isbn
+    nova_knjiga['izdavac']=izdavac
+    nova_knjiga['broj strana']=broj_strana
+    nova_knjiga['godina']=godina
+    nova_knjiga['cena']=cena
+    nova_knjiga['kategorija']=kategorija
+    nova_knjiga['brisanje']=brisanje
+
+    stara_knjiga=[knjige[z],nova_knjiga]
+    print("\nIzmena ")
+    ispisi_knjige(stara_knjiga)
+
     sacuvaj_knjige(knjige)
     print('%s je dodata u bazu podataka. Knjiga sifra=[%s]' %(nova_knjiga['naslov'], nova_knjiga['sifra']))
     return False

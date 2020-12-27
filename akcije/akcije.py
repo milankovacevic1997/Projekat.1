@@ -78,7 +78,7 @@ def pretrazi_akcije():
     else:
         print("Pogresan unos")
 
-    ispisi_akcije()
+    ispisi_akcije(akcije)
 
 
 def sortiraj_akcije(kljuc):
@@ -116,11 +116,11 @@ def sortirane_akcije():
         print("Pogresan unos!")
     ispisi_akcije()
 
-def ispisi_akcije():
+def ispisi_akcije(akcije):
 
     zaglavlje = f"{'sifra':<15}" \
                 f"{'artikli':<45}" \
-                f"{'cena':<15}" \
+                f"{'nova cena':<15}" \
                 f"{'datum vazenja':<20}"
 
     print(zaglavlje)
@@ -129,7 +129,7 @@ def ispisi_akcije():
     for akcija in akcije:
         za_ispis = f"{akcija['sifra']:<15}" \
                    f"{akcija['artikli']:<45}" \
-                   f"{akcija['cena']:<15}" \
+                   f"{akcija['nova cena']:<15}" \
                    f"{akcija['datum_vazenja']:<20}"
         print(za_ispis)
 
@@ -139,17 +139,17 @@ def  registracija_akcije():
         sifra=akcija['sifra']
     sifra+=1
     artikli=input('artikli:')
-    cena=float(input('cena:'))
+    nova_cena=float(input('nova cena:'))
     datum_vazenja=int(input('datum_vazenja:'))
     nova_akcija={
         "sifra": 3,
         "artikli": "Knjiga 1",
-        "cena": 650.0,
+        "nova cena": 650.0,
         "datum_vazenja": "20.12.2020."
     }
     nova_akcija['sifra'] = sifra
     nova_akcija['artikli']= artikli
-    nova_akcija['cena']=cena
+    nova_akcija['nova cena']=nova_cena
     nova_akcija['datum_vazenja']=datum_vazenja
 
     akcije.append(nova_akcija)

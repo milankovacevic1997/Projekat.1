@@ -1,6 +1,6 @@
-from korisnici.korisnici import prijava, registracija, ispis_korisnika
-from knjige.knjige import sortirane_knjige, pretrazi_knjige, dodavanje_knjiga, brisanje_knjige
-from akcije.akcije import pretrazi_akcije, ispisi_akcije, registracija_akcije
+from korisnici.korisnici import prijava, registracija, ispis_korisnika, korisnici
+from knjige.knjige import sortirane_knjige, pretrazi_knjige, dodavanje_knjiga, brisanje_knjige, izmena_knjige
+from akcije.akcije import pretrazi_akcije, ispisi_akcije, registracija_akcije, akcije
 
 
 def meni_administrator():
@@ -11,7 +11,7 @@ def meni_administrator():
         print("2. Pretraga knjiga")
         print("3. Prikaz akcija")
         print("4. Pretraga akcija")
-        print("5. Registracija")
+        print("5. Registracija korisnika")
         print("6. Lista korisnika")
         print("7. Dodaj knjigu")
         print("8. Izmeni knjigu")
@@ -26,7 +26,7 @@ def meni_administrator():
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
-            ispisi_akcije()
+            ispisi_akcije(akcije)
         elif stavka == 4:
             pretrazi_akcije()
         elif stavka == 5:
@@ -51,33 +51,31 @@ def meni_menadzer():
         print("\n 1. Sortiranje knjiga")
         print(" 2. Pretraga knjiga")
         print(" 3. Prikaz akcija")
-        print(" 4. Registracija akcija")
-        print(" 5. Registracija korisnika")
-        print(" 6. Lista korisnika")
-        print(" 7. Dodaj knjigu")
-        print(" 8. Izmeni knjigu")
-        print(" 9. Obrisi knjigu")
+        print(" 4. Pretraga akcija")
+        print(" 5. Registracija akcija")
+        print(" 6. Registracija korisnika")
+        print(" 7. Lista korisnika")
+        print(" 8. Kreiraj izvestaj")
         print(" 0. Kraj")
         print('***' * 20)
         stavka = int(input("Izaberite stavku: "))
+        print('***' * 20)
 
         if stavka == 1:
             sortirane_knjige()
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
-            ispisi_akcije()
+            ispisi_akcije(akcije)
         elif stavka == 4:
-            registracija_akcije()
+            pretrazi_akcije()
         elif stavka == 5:
-            registracija()
+            registracija_akcije()
         elif stavka == 6:
-            ispis_korisnika(korisnici)
+            registracija()
         elif stavka == 7:
-            dodavanje_knjiga()
+            ispis_korisnika(korisnici)
         elif stavka == 8:
-            izmena_knjige()
-        elif stavka == 9:
             print("Nemate dozvolu za ovu komandu")
             meni_menadzer()
         elif stavka == 0:
@@ -101,13 +99,14 @@ def meni_prodavac():
         print("0. Kraj")
         print('***' * 20)
         stavka = int(input("Izaberite stavku: "))
+        print('***' * 20)
 
         if stavka == 1:
             sortirane_knjige()
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
-            ispisi_akcije()
+            ispisi_akcije(akcije)
         elif stavka == 4:
             pretrazi_akcije()
         elif stavka == 5:
