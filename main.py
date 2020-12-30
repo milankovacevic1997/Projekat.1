@@ -1,19 +1,20 @@
 from korisnici.korisnici import prijava, registracija, ispis_korisnika, korisnici
 from knjige.knjige import sortirane_knjige, pretrazi_knjige, dodavanje_knjiga, brisanje_knjige, izmena_knjige
-from akcije.akcije import pretrazi_akcije, ispisi_akcije, registracija_akcije, akcije
+from akcije.akcije import pretrazi_akcije, sortirane_akcije, dodavanje_akcije
+from Prodaja import prodaja_knjige
 
 
 def meni_administrator():
     print()
     print('***'*20)
     while True:
-        print("\n1. Sortiranje knjiga")
-        print("2. Pretraga knjiga")
-        print("3. Prikaz akcija")
-        print("4. Pretraga akcija")
-        print("5. Registracija korisnika")
-        print("6. Lista korisnika")
-        print("7. Dodaj knjigu")
+        print("\n1. Sortiranje knjiga") #radi
+        print("2. Pretraga knjiga") #radi
+        print("3. Prikaz akcija")#radi
+        print("4. Pretraga akcija")#radi
+        print("5. Registracija korisnika") #radi
+        print("6. Lista korisnika")#radi
+        print("7. Dodaj knjigu")#radi
         print("8. Izmeni knjigu")
         print("9. Obrisi knjigu")
         print("0. Kraj")
@@ -26,7 +27,7 @@ def meni_administrator():
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
-            ispisi_akcije(akcije)
+            sortirane_akcije()
         elif stavka == 4:
             pretrazi_akcije()
         elif stavka == 5:
@@ -48,13 +49,13 @@ def meni_administrator():
 def meni_menadzer():
     print('***' * 20)
     while True:
-        print("\n 1. Sortiranje knjiga")
-        print(" 2. Pretraga knjiga")
-        print(" 3. Prikaz akcija")
-        print(" 4. Pretraga akcija")
-        print(" 5. Registracija akcija")
-        print(" 6. Registracija korisnika")
-        print(" 7. Lista korisnika")
+        print("\n 1. Sortiranje knjiga")#radi
+        print(" 2. Pretraga knjiga")#radi
+        print(" 3. Prikaz akcija")#radi
+        print(" 4. Pretraga akcija")#radi
+        print(" 5. Registracija akcija")#radi
+        print(" 6. Registracija korisnika")#radi
+        print(" 7. Lista korisnika")#radi
         print(" 8. Kreiraj izvestaj")
         print(" 0. Kraj")
         print('***' * 20)
@@ -66,11 +67,11 @@ def meni_menadzer():
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
-            ispisi_akcije(akcije)
+            sortirane_akcije()
         elif stavka == 4:
             pretrazi_akcije()
         elif stavka == 5:
-            registracija_akcije()
+            dodavanje_akcije()
         elif stavka == 6:
             registracija()
         elif stavka == 7:
@@ -88,12 +89,12 @@ def meni_prodavac():
 
     print('***' * 20)
     while True:
-        print("\n1. Sortiranje knjiga")
-        print("2. Pretraga knjiga")
-        print("3. Prikaz akcija")
-        print("4. Pretraga akcija")
+        print("\n1. Sortiranje knjiga")#radi
+        print("2. Pretraga knjiga")#radi
+        print("3. Prikaz akcija")#radi
+        print("4. Pretraga akcija")#radi
         print("5. Prodaj knjigu")
-        print("6. Dodaj knjigu")
+        print("6. Dodaj knjigu")#radi
         print("7. Izmeni knjigu")
         print("8. Obrisi knjigu(logicko brisanje)")
         print("0. Kraj")
@@ -106,11 +107,11 @@ def meni_prodavac():
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
-            ispisi_akcije(akcije)
+            sortirane_akcije()
         elif stavka == 4:
             pretrazi_akcije()
         elif stavka == 5:
-            prodaja()
+            prodaja_knjige()
         elif stavka == 6:
             dodavanje_knjiga()
         elif stavka == 7:
@@ -124,11 +125,13 @@ def meni_prodavac():
 
 
 def main():
-    for i in range(4):
+    mogucnost_prijave = True
+    i = 0
+    while(mogucnost_prijave):
         if i == 3:
             print("Previse neuspelih pokusaja za pprijavu!")
+            mogucnost_prijave = False
             exit()
-
         ulogovani_korisnik = prijava()
         if ulogovani_korisnik != False :
             print("Uspesna prijava!Tip korisnika:", ulogovani_korisnik['tip_korisnika'])
@@ -136,10 +139,11 @@ def main():
                 meni_administrator()
             elif ulogovani_korisnik['tip_korisnika'] == 'Menadzer':
                 meni_menadzer()
-            elif ulogovani_korisnik['tip_korisnika'] == 'Prodavac':
-                meni_prodavac()
             else:
-                print("Greska! Nepostojeca uloga korisnika!")
+                meni_prodavac()
+        else:
+            print("Greska! Nepostojeca uloga korisnika!")
+            i = i + 1
 
 
 main()

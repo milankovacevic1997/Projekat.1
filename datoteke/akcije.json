@@ -1,18 +1,1 @@
-[{
-  "sifra": 11,
-  "artikli": "Knjiga 1",
-  "nova cena": 900.0,
-  "datum_vazenja": "31.12.2020."
-},
-  {
-  "sifra": 34255,
-  "artikli": "Knjiga 2",
-  "nova cena": 1500.00,
-  "datum_vazenja": "28.12.2020."
-  },
-  {
-  "sifra": 34265,
-  "artikli": "Knjiga 3",
-  "nova cena": 1800.00,
-  "datum_vazenja": "27.12.2020."
-  }]
+[{"sifra": 11, "artikli": [{"naslov": "Proces", "cena": 1030.0}, {"naslov": "Alhemicar", "cena": 1400.0}], "nova cena": 900.0, "datum_vazenja": "1.12.2021."}, {"sifra": 22, "artikli": [{"naslov": "Evgenije Onjegin", "cena": 1210.0}, {"naslov": "Dervis i smrt", "cena": 1550.0}], "nova cena": 1100.0, "datum_vazenja": "28.12.2020."}, {"sifra": 33, "artikli": [{"naslov": "Ana Karenjina", "cena": 1899.1}], "nova cena": 1800.0, "datum_vazenja": "27.12.2020."}]

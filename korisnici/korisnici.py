@@ -5,21 +5,14 @@ korisnici=ucitaj_korisnike()
 n =len(korisnici)
 
 def prijava():
-    korisnici = ucitaj_korisnike()
     korisncko_ime = input("korisnicko ime: ")
     lozinka = input("loznika: ")
-
     for korisnik in korisnici:
         if korisnik['korisnicko_ime'] == korisncko_ime and korisnik['lozinka'] == lozinka:
             return korisnik
-            print("Dobrodosli!")
-        else:
-            print("Tog korisnika nema u bazi podataka. Pokusajte ponovo!")
-            return prijava()
-    return None
+    return False
 
 def ispis_korisnika(korisnici):
-    korisnici=ucitaj_korisnike()
     zaglavlje = f"{'ime':<20}" \
                 f"{'prezime':<20}" \
                 f"{'tip korisnika':<20}"
@@ -52,7 +45,6 @@ def registracija():
                                           "Korisnicko ime")
         if korisnicko_ime == 'nazad':
             return
-
         postojece_korisnicko_ime = False
         for korisnik in korisnici:
             if korisnik['korisnicko_ime'] == korisnicko_ime:
@@ -75,7 +67,7 @@ def registracija():
             print("Pogresan tip korisnika! Pokusajte ponovo!")
 
     novi_korsinik = {}
-    novi_korsinik['korisnickoime'] = korisnicko_ime
+    novi_korsinik['korisnicko_ime'] = korisnicko_ime
     novi_korsinik['lozinka'] = lozinka
     novi_korsinik['ime'] = ime
     novi_korsinik['prezime'] = prezime

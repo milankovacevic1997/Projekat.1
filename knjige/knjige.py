@@ -7,6 +7,7 @@ i = 0
 z = len(knjige)
 
 duzina = [1, 1, 1, 1, 1, 1, 1, 1, 1]
+
 kljuc = ['sifra', 'naslov', 'isbn', 'autor', 'izdavac', 'broj strana', 'godina', 'cena', 'kategorija']
 
 
@@ -211,7 +212,7 @@ def izmena_knjige():
         i+=1
     if unos==0:
         print("Knjiga nije pronadjena, pokusaj opet!")
-        if izmena_knjiga()==False:
+        if izmena_knjige()==False:
             return False
 
     stara_knjiga={
@@ -293,7 +294,7 @@ def brisanje_knjige():
     z = -1
     i = 0
     while True:
-        sifra=input("\nUnesite sifru knjige koju zelite da obrisete (upucajte nazad za povratak):")
+        sifra=input("\nUnesite sifru knjige koju zelite da obrisete (ukucajte 'nazad' za povratak):")
         if sifra=='nazad':
             return False
         elif sifra != '':
@@ -320,3 +321,4 @@ def brisanje_knjige():
     sacuvaj_knjige(knjige)
     print('%s je dodata u bazu podataka. Knjiga sifra=[%s]' % (obrisane_knjige['naslov'], obrisane_knjige['sifra']))
     return False
+

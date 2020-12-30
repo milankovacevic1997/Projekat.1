@@ -64,5 +64,16 @@
         "godina": 2009,
         "cena": 1400.0,
         "kategorija": "Roman"
+    },
+    {
+        "sifra": 34268,
+        "naslov": "Gospodjica",
+        "autor": "Ivo Andric",
+        "isbn": "444333",
+        "izdavac": "Zavod",
+        "broj strana": 230,
+        "godina": 1990,
+        "cena": 1320.0,
+        "kategorija": "Roman"
     }
 ]
