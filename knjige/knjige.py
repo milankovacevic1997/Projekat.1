@@ -134,9 +134,9 @@ def sortirane_knjige():
     ispisi_knjige(knjige)
 
 def ispisi_knjige(knjige):
-        zaglavlje = f"{'sifra':<10}" \
-                    f"{'naslov':<20}" \
-                    f"{'autor':<20}" \
+        zaglavlje = f"{'sifra':<8}" \
+                    f"{'naslov':<25}" \
+                    f"{'autor':<25}" \
                     f"{'isbn':^15}" \
                     f"{'izdavac':^15}" \
                     f"{'godina izdanja':^15}" \
@@ -148,9 +148,9 @@ def ispisi_knjige(knjige):
         print("-" * len(zaglavlje))
 
         for knjiga in knjige:
-            za_ispis = f"{knjiga['sifra']:<10}" \
-                       f"{knjiga['naslov']:<20}" \
-                       f"{knjiga['autor']:<20}" \
+            za_ispis = f"{knjiga['sifra']:<8}" \
+                       f"{knjiga['naslov']:<25}" \
+                       f"{knjiga['autor']:<25}" \
                        f"{knjiga['isbn']:^15}" \
                        f"{knjiga['izdavac']:^15}" \
                        f"{knjiga['godina']:^15}" \

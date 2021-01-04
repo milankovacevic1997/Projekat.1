@@ -2,10 +2,12 @@ from racun.racunIO import ucitaj_racun, sacuvaj_racun
 from knjige.knjigeIO import ucitaj_knjige
 from akcije.akcijeIO import ucitaj_akcije
 from datetime import datetime
+from korisnici.korisniciIO import ucitaj_korisnike
 
 racuni = ucitaj_racun()
 knjige = ucitaj_knjige()
 akcije = ucitaj_akcije()
+korisnici=ucitaj_korisnike()
 
 def prodaja_knjige():
     korpa = []
@@ -39,9 +41,20 @@ def prodaja_knjige():
                     akcija['kolicina'] = kolicina
                     novi_racun['akcije'].append(akcija)
                     novi_racun['cena'] += akcija['nova cena']*int(kolicina)
-    novi_racun['datum_vreme']=now.strftime("%d.%m.%Y. %H:%M:%S")
-    racuni.append(novi_racun)
-    sacuvaj_racun(racuni)
+    ispis_knjiga_racun(racuni)
+    ispis_akcija_racun(racuni)
+    # while True:
+    #     print('\nZelite li da nastavite kupovinu?\n1. Da\n2. Odustani')
+    #     stavka = int(input('Unesite odgovor:'))
+    #         if stavka == 1:
+    #             novi_racun['datum_vreme'] = now.strftime("%d.%m.%Y. %H:%M:%S")
+    #             racuni.append(novi_racun)
+    #             sacuvaj_racun(racuni)
+    #         elif stavka == 2:
+    #             return False
+    #         else:
+    #             print('Uneli ste pogresnu opciju. Pokusajte ponovo.')
+
 
 def ispisi_racun(akcije):
     zaglavlje = f"{'sifra':<10}" \
@@ -128,17 +141,59 @@ def pravljenje_racuna():
     for racun in stari_racun:
         z+=1
     racun['sifra'] = z
-    racun['prodavac'] = korisnik.korisnicko_ime()
+    racun['prodavac'] = korisnici.korisnicko_ime()
     racun['datum_vreme'] = datetime.now().isoformat()
-    racun['artikli'] = korpa
+    racun['artikli'] = artikli
     racun['ukupno'] = ukupno
     return racun
+
+def ispis_zaglavlja(racuni):
+    print('sifra racuna: '), print(int[racun['sifra']])
+    print('prodavac: '), print(str[korisnici['korisnicko_ime']])
+    print('datum i vreme: '), print(datetime.now().isoformat())
+    print('__'*20)
+
+def ispis_knjiga_racun(racuni):
+    global za_ispis
+    zaglavlje = f"{'artikli':<20}" \
+                f"{'cena':<20}" \
+                f"{'kolicina':<20}"
+
+    print(zaglavlje)
+    print("-" * len(zaglavlje))
+
+    for racun in racuni:
+        for i in range(0, len(racuni)):
+            for j in range(0, len(racuni[i]['artikli'])):
+                za_ispis = f"{racun[i]['artikli'][j]['naslov']:<20}" \
+                           f"{racun[i]['artikli'][j]['cena']:^20}" \
+                           f"{racun[i]['artikli'][j]['kolicina']:^20}"
+
+        print(za_ispis)
+    print("-" * len(zaglavlje))
+
+def ispis_akcija_racun(racuni):
+    zaglavlje = f"{'artikli':<20}" \
+                f"{'cena':<20}" \
+                f"{'kolicina':<20}"
+
+    print(zaglavlje)
+    print("-" * len(zaglavlje))
+
+    for racun in racuni:
+        za_ispis = f"{racun['akcije']['naslov']:<20}" \
+                   f"{racun['cena']:<20}" \
+                   f"{racun['akcije']['kolicina']:<20}"
+        print(za_ispis)
+    print("-" * len(zaglavlje))
+
 
 def kraj_kupovine():
     racuni = ucitaj_racun()
     racun = pravljenje_racuna()
-    print('\nKnjige koje su prodate su:')
-    list(korpa)
+    print('\nKnjige koje su odabrane su:')
+    ispis_knjiga_racun(racuni)
+    ispis_akcija_racun(racuni)
     while True:
         print('\nZelite li da nastavite?\n1. Da\n2. Odustani')
         stavka = input('Unesite:')

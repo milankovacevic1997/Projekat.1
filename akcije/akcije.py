@@ -69,7 +69,7 @@ def sortiraj_akcije(kljuc):
                 temp = akcije[i]
                 akcije[i] = akcije[j]
                 akcije[j] = temp
-    ispisi_akcije(akcije)
+
 
 
 def sortirane_akcije():
@@ -106,9 +106,9 @@ def ispisi_akcije(akcije):
             for j in range (0,len(akcije[i]['artikli'])):
                 za_ispis = f"{akcije[i]['sifra']:<10}" \
                            f"{akcije[i]['artikli'][j]['naslov']:<20}" \
-                           f"{akcije[i]['artikli'][j]['cena']:<20}" \
-                           f"{akcije[i]['nova cena']:<20}" \
-                           f"{akcije[i]['datum_vazenja']:<20}"
+                           f"{akcije[i]['artikli'][j]['cena']:^20}" \
+                           f"{akcije[i]['nova cena']:^20}" \
+                           f"{akcije[i]['datum_vazenja']:^20}"
 
                 print(za_ispis)
 
@@ -124,7 +124,7 @@ def  dodavanje_akcije():
     nova_akcija['sifra'] = sifra + 1
     unos_knjiga = True
     while(unos_knjiga):
-        sifra = input("\n Unesi sifru knjige (unesi 'nazad' za povratak u meni, unesi 'x' za prekid unosa knjiga):")
+        sifra = input("\nUnesi sifru knjige (unesi 'nazad' za povratak u meni, unesi 'x' za prekid unosa knjiga): ")
         if sifra == 'nazad':
             return
         elif sifra == 'x':
@@ -133,9 +133,9 @@ def  dodavanje_akcije():
             for knjiga in knjige:
                 if knjiga['sifra'] == int(sifra):
                     nova_akcija['artikli'].append(knjiga)
-    nova_cena = input("\n Unesi cenu akcije")
+    nova_cena = input("\nUnesi cenu akcije: ")
     nova_akcija['nova cena'] = nova_cena
-    datum_vazenja = input("\n Unesi datum vazenja akije")
+    datum_vazenja = input("\nUnesi datum vazenja akije: ")
     nova_akcija['datum_vazenja'] = datum_vazenja
     akcije.append(nova_akcija)
     sacuvaj_akcije(akcije)

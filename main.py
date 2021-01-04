@@ -47,9 +47,10 @@ def meni_administrator():
 
 
 def meni_menadzer():
+    print('\n')
     print('***' * 20)
     while True:
-        print("\n 1. Sortiranje knjiga")#radi
+        print(" 1. Sortiranje knjiga")#radi
         print(" 2. Pretraga knjiga")#radi
         print(" 3. Prikaz akcija")#radi
         print(" 4. Pretraga akcija")#radi

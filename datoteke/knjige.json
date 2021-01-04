@@ -22,7 +22,7 @@
         "kategorija": "Roman"
     },
     {
-        "sifra": 350497,
+        "sifra": 3,
         "naslov": "Ana Karenjina",
         "autor": "Tolstoj",
         "isbn": "456372839",
@@ -33,7 +33,7 @@
         "kategorija": "Roman"
     },
     {
-        "sifra": 794053,
+        "sifra": 4,
         "naslov": "Evgenije Onjegin",
         "autor": "Puskin",
         "isbn": "13213213",
@@ -44,7 +44,7 @@
         "kategorija": "Zbirka pesama"
     },
     {
-        "sifra": 34266,
+        "sifra": 5,
         "naslov": "Proces",
         "autor": "Kafka",
         "isbn": "22332233",
@@ -55,7 +55,7 @@
         "kategorija": "Roman"
     },
     {
-        "sifra": 34267,
+        "sifra": 6,
         "naslov": "Alhemicar",
         "autor": "Koeljo",
         "isbn": "3333",
@@ -66,7 +66,7 @@
         "kategorija": "Roman"
     },
     {
-        "sifra": 34268,
+        "sifra": 7,
         "naslov": "Gospodjica",
         "autor": "Ivo Andric",
         "isbn": "444333",
@@ -74,6 +74,17 @@
         "broj strana": 230,
         "godina": 1990,
         "cena": 1320.0,
+        "kategorija": "Roman"
+    },
+    {
+        "sifra": 8,
+        "naslov": "Kada su cvetale tikve",
+        "autor": "Mihajlovic",
+        "isbn": "4443332",
+        "izdavac": "Kontrast",
+        "broj strana": 157,
+        "godina": 2009,
+        "cena": 799.0,
         "kategorija": "Roman"
     }
 ]

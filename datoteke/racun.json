@@ -19,7 +19,7 @@
         ],
         "akcije": [
             {
-                "sifra": 11,
+                "sifra": 1111,
                 "artikli": [
                     {
                         "naslov": "Proces",
@@ -36,119 +36,4 @@
             }
         ],
         "ukupno": 1000.0
-    },
-    {
-        "sifra": 666,
-        "prodavac": "Mirko Mirkovic",
-        "datum_vreme": "2020-12-27T18:16:25.925653",
-        "artikli": [
-            {
-                "sifra": 1,
-                "naslov": "Na Drini cuprija",
-                "autor": "Ivo Andric",
-                "isbn": "38829274920",
-                "izdavac": "Vulkan",
-                "broj strana": "231",
-                "godina": 2020,
-                "cena": 1000.0,
-                "kategorija": "Roman",
-                "kolicina": "2"
-            }
-        ],
-        "akcije": [
-            {
-                "sifra": 11,
-                "artikli": [
-                    {
-                        "naslov": "Proces",
-                        "cena": 1030.0
-                    },
-                    {
-                        "naslov": "Alhemicar",
-                        "cena": 1400.0
-                    }
-                ],
-                "nova cena": 900.0,
-                "datum_vazenja": "1.12.2021.",
-                "kolicina": "2"
-            }
-        ],
-        "ukupno": 1000.0
-    },
-    {
-        "sifra": 667,
-        "prodavac": "Mirko Mirkovic",
-        "datum_vreme": "2020-12-27T18:16:25.925653",
-        "artikli": [
-            {
-                "sifra": 2,
-                "naslov": "Dervis i smrt",
-                "autor": "Mesa Selimovic",
-                "isbn": "8493927482",
-                "izdavac": "Vulkan",
-                "broj strana": "323",
-                "godina": 2019,
-                "cena": 1550.0,
-                "kategorija": "Roman",
-                "kolicina": "2"
-            }
-        ],
-        "akcije": [
-            {
-                "sifra": 22,
-                "artikli": [
-                    {
-                        "naslov": "Evgenije Onjegin",
-                        "cena": 1210.0
-                    },
-                    {
-                        "naslov": "Dervis i smrt",
-                        "cena": 1550.0
-                    }
-                ],
-                "nova cena": 1100.0,
-                "datum_vazenja": "28.12.2020.",
-                "kolicina": "1"
-            }
-        ],
-        "ukupno": 1000.0
-    },
-    {
-        "sifra": 668,
-        "prodavac": "Mirko Mirkovic",
-        "datum_vreme": "29.12.2020. 21:55:03",
-        "artikli": [
-            {
-                "sifra": 1,
-                "naslov": "Na Drini cuprija",
-                "autor": "Ivo Andric",
-                "isbn": "38829274920",
-                "izdavac": "Vulkan",
-                "broj strana": "231",
-                "godina": 2020,
-                "cena": 1000.0,
-                "kategorija": "Roman",
-                "kolicina": "1"
-            }
-        ],
-        "akcije": [
-            {
-                "sifra": 11,
-                "artikli": [
-                    {
-                        "naslov": "Proces",
-                        "cena": 1030.0
-                    },
-                    {
-                        "naslov": "Alhemicar",
-                        "cena": 1400.0
-                    }
-                ],
-                "nova cena": 900.0,
-                "datum_vazenja": "1.12.2021.",
-                "kolicina": "2"
-            }
-        ],
-        "cena": 2800.0
-    }
-]
+    }]
