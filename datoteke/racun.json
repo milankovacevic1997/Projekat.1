@@ -1,39 +1,68 @@
 [
     {
-        "sifra": 666,
-        "prodavac": "Mirko Mirkovic",
-        "datum_vreme": "2020-12-27T18:16:25.925653",
+        "sifra": 673,
+        "prodavac": "x",
+        "datum_vreme": "05.01.2021. 22:47:06",
+        "artikli": [],
+        "akcije": [
+            {
+                "sifra": 1112,
+                "artikli": [
+                    {
+                        "naslov": "Evgenije Onjegin",
+                        "cena": 1210.0,
+                        "nova cena": "1100.0"
+                    },
+                    {
+                        "naslov": "Dervis i smrt",
+                        "cena": 1550.0,
+                        "nova cena": "1100.0"
+                    }
+                ],
+                "datum_vazenja": "2021-02-05",
+                "kolicina": "1"
+            }
+        ],
+        "cena": 2200.0
+    },
+    {
+        "sifra": 674,
+        "prodavac": "x",
+        "datum_vreme": "05.01.2021. 22:51:00",
         "artikli": [
             {
-                "sifra": 1,
-                "naslov": "Na Drini cuprija",
+                "sifra": 7,
+                "naslov": "Novi naslov",
                 "autor": "Ivo Andric",
-                "isbn": "38829274920",
-                "izdavac": "Vulkan",
-                "broj strana": "231",
-                "godina": 2020,
-                "cena": 1000.0,
-                "kategorija": "Roman",
-                "kolicina": 1
+                "isbn": "444333",
+                "izdavac": "aaa",
+                "broj strana": 120,
+                "godina": 1990,
+                "cena": 1320.0,
+                "kategorija": "aa",
+                "obrisano": "True",
+                "kolicina": "7"
             }
         ],
         "akcije": [
             {
-                "sifra": 1111,
+                "sifra": 1112,
                 "artikli": [
                     {
-                        "naslov": "Proces",
-                        "cena": 1030.0
+                        "naslov": "Evgenije Onjegin",
+                        "cena": 1210.0,
+                        "nova cena": "1100.0"
                     },
                     {
-                        "naslov": "Alhemicar",
-                        "cena": 1400.0
+                        "naslov": "Dervis i smrt",
+                        "cena": 1550.0,
+                        "nova cena": "1100.0"
                     }
                 ],
-                "nova cena": 900.0,
-                "datum_vazenja": "1.12.2021.",
-                "kolicina": 1
+                "datum_vazenja": "2021-02-05",
+                "kolicina": "2"
             }
         ],
-        "ukupno": 1000.0
-    }]
+        "cena": 13640.0
+    }
+]

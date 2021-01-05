@@ -1,10 +1,9 @@
 from korisnici.korisnici import prijava, registracija, ispis_korisnika, korisnici
 from knjige.knjige import sortirane_knjige, pretrazi_knjige, dodavanje_knjiga, brisanje_knjige, izmena_knjige
 from akcije.akcije import pretrazi_akcije, sortirane_akcije, dodavanje_akcije
-from Prodaja import prodaja_knjige
+from Prodaja import prodaja_knjige, izvestaj_ukupna_prodaja, izvestaj_prodaja_akcija, izvestaj_autor
 
-
-def meni_administrator():
+def meni_administrator(ulogovani):
     print()
     print('***'*20)
     while True:
@@ -23,7 +22,7 @@ def meni_administrator():
         print('***' * 20)
 
         if stavka == 1:
-            sortirane_knjige()
+            sortirane_knjige(ulogovani)
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
@@ -33,7 +32,7 @@ def meni_administrator():
         elif stavka == 5:
             registracija()
         elif stavka == 6:
-            ispis_korisnika(korisnici)
+            ispis_korisnika()
         elif stavka == 7:
             dodavanje_knjiga()
         elif stavka == 8:
@@ -46,7 +45,7 @@ def meni_administrator():
             print("Pokusajte ponovo!")
 
 
-def meni_menadzer():
+def meni_menadzer(ulogovani):
     print('\n')
     print('***' * 20)
     while True:
@@ -64,7 +63,7 @@ def meni_menadzer():
         print('***' * 20)
 
         if stavka == 1:
-            sortirane_knjige()
+            sortirane_knjige(ulogovani)
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
@@ -78,15 +77,14 @@ def meni_menadzer():
         elif stavka == 7:
             ispis_korisnika(korisnici)
         elif stavka == 8:
-            print("Nemate dozvolu za ovu komandu")
-            meni_menadzer()
+            izvestaj_autor()
         elif stavka == 0:
             return
         else:
             print("Pokusajte ponovo!")
 
 
-def meni_prodavac():
+def meni_prodavac(ulogovani_korisnik):
 
     print('***' * 20)
     while True:
@@ -104,7 +102,7 @@ def meni_prodavac():
         print('***' * 20)
 
         if stavka == 1:
-            sortirane_knjige()
+            sortirane_knjige(ulogovani_korisnik)
         elif stavka == 2:
             pretrazi_knjige()
         elif stavka == 3:
@@ -112,7 +110,7 @@ def meni_prodavac():
         elif stavka == 4:
             pretrazi_akcije()
         elif stavka == 5:
-            prodaja_knjige()
+            prodaja_knjige(ulogovani_korisnik)
         elif stavka == 6:
             dodavanje_knjiga()
         elif stavka == 7:
@@ -130,18 +128,18 @@ def main():
     i = 0
     while(mogucnost_prijave):
         if i == 3:
-            print("Previse neuspelih pokusaja za pprijavu!")
+            print("Previse neuspelih pokusaja za prijavu!")
             mogucnost_prijave = False
             exit()
         ulogovani_korisnik = prijava()
         if ulogovani_korisnik != False :
             print("Uspesna prijava!Tip korisnika:", ulogovani_korisnik['tip_korisnika'])
             if ulogovani_korisnik['tip_korisnika'] == 'Administrator':
-                meni_administrator()
+                meni_administrator(ulogovani_korisnik)
             elif ulogovani_korisnik['tip_korisnika'] == 'Menadzer':
-                meni_menadzer()
+                meni_menadzer(ulogovani_korisnik)
             else:
-                meni_prodavac()
+                meni_prodavac(ulogovani_korisnik)
         else:
             print("Greska! Nepostojeca uloga korisnika!")
             i = i + 1

@@ -8,7 +8,8 @@
         "broj strana": "231",
         "godina": 2020,
         "cena": 1000.0,
-        "kategorija": "Roman"
+        "kategorija": "Roman",
+        "obrisano": "False"
     },
     {
         "sifra": 2,
@@ -19,7 +20,8 @@
         "broj strana": "323",
         "godina": 2019,
         "cena": 1550.0,
-        "kategorija": "Roman"
+        "kategorija": "Roman",
+        "obrisano": "False"
     },
     {
         "sifra": 3,
@@ -30,7 +32,8 @@
         "broj strana": "213",
         "godina": 2020,
         "cena": 1899.1,
-        "kategorija": "Roman"
+        "kategorija": "Roman",
+        "obrisano": "False"
     },
     {
         "sifra": 4,
@@ -41,7 +44,8 @@
         "broj strana": "123",
         "godina": 2020,
         "cena": 1210.0,
-        "kategorija": "Zbirka pesama"
+        "kategorija": "Zbirka pesama",
+        "obrisano": "False"
     },
     {
         "sifra": 5,
@@ -52,7 +56,8 @@
         "broj strana": 130,
         "godina": 2003,
         "cena": 1030.0,
-        "kategorija": "Roman"
+        "kategorija": "Roman",
+        "obrisano": "False"
     },
     {
         "sifra": 6,
@@ -63,18 +68,20 @@
         "broj strana": 254,
         "godina": 2009,
         "cena": 1400.0,
-        "kategorija": "Roman"
+        "kategorija": "Roman",
+        "obrisano": "False"
     },
     {
         "sifra": 7,
         "naslov": "Gospodjica",
         "autor": "Ivo Andric",
         "isbn": "444333",
-        "izdavac": "Zavod",
-        "broj strana": 230,
+        "izdavac": "Prometej",
+        "broj strana": 120,
         "godina": 1990,
         "cena": 1320.0,
-        "kategorija": "Roman"
+        "kategorija": "aa",
+        "obrisano": "True"
     },
     {
         "sifra": 8,
@@ -85,6 +92,31 @@
         "broj strana": 157,
         "godina": 2009,
         "cena": 799.0,
-        "kategorija": "Roman"
+        "kategorija": "Roman",
+        "obrisano": "False"
+    },
+    {
+        "sifra": 9,
+        "naslov": "Jedini svedok",
+        "autor": "Tes Geritsen",
+        "isbn": "97886521",
+        "izdavac": "Laguna",
+        "broj strana": 325,
+        "godina": 2020,
+        "cena": 829.0,
+        "kategorija": "Roman",
+        "obrisano": "False"
+    },
+    {
+        "sifra": 10,
+        "naslov": "Preljuba",
+        "autor": "Koeljo",
+        "isbn": "321321",
+        "izdavac": "Most",
+        "broj strana": 354,
+        "godina": 2019,
+        "cena": 1010.0,
+        "kategorija": "Roman",
+        "obrisano": "False"
     }
 ]

@@ -12,7 +12,7 @@ def prijava():
             return korisnik
     return False
 
-def ispis_korisnika(korisnici):
+def ispis_korisnika():
     zaglavlje = f"{'ime':<20}" \
                 f"{'prezime':<20}" \
                 f"{'tip korisnika':<20}"
@@ -77,9 +77,6 @@ def registracija():
     else:
         novi_korsinik['tip_korisnika'] = 'Prodavac'
     print("\n Korisnik se dodaje:")
-
-    ispis_korisnika([novi_korsinik])
-
     korisnici.append(novi_korsinik)
     sacuvaj_korisnike(korisnici)
     print("%s je REGISTROVAN dodat u korisnike bazu podatka.Tip korisnika=[%s]" % (novi_korsinik['korisnicko_ime'], novi_korsinik['tip_korisnika']))

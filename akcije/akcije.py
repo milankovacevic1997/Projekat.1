@@ -107,7 +107,7 @@ def ispisi_akcije(akcije):
                 za_ispis = f"{akcije[i]['sifra']:<10}" \
                            f"{akcije[i]['artikli'][j]['naslov']:<20}" \
                            f"{akcije[i]['artikli'][j]['cena']:^20}" \
-                           f"{akcije[i]['nova cena']:^20}" \
+                           f"{akcije[i]['artikli'][j]['nova cena']:^20}" \
                            f"{akcije[i]['datum_vazenja']:^20}"
 
                 print(za_ispis)
@@ -117,7 +117,6 @@ def  dodavanje_akcije():
     nova_akcija = {
       "sifra": 33,
       "artikli": [],
-      "nova cena": 1800.0,
       "datum_vazenja": "27.12.2020."
     }
     sifra = akcije[-1]['sifra']
@@ -132,9 +131,9 @@ def  dodavanje_akcije():
         else:
             for knjiga in knjige:
                 if knjiga['sifra'] == int(sifra):
+                    nova_cena = input("\nUnesi novu cenu knjige: ")
+                    knjiga['nova cena'] = nova_cena
                     nova_akcija['artikli'].append(knjiga)
-    nova_cena = input("\nUnesi cenu akcije: ")
-    nova_akcija['nova cena'] = nova_cena
     datum_vazenja = input("\nUnesi datum vazenja akije: ")
     nova_akcija['datum_vazenja'] = datum_vazenja
     akcije.append(nova_akcija)
