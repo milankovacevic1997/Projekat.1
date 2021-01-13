@@ -1,126 +1,130 @@
-from korisnici.korisnici import prijava, registracija, ispis_korisnika, korisnici
+from korisnici.korisnici import prijava, registracija, sortiranje_korisnika
 from knjige.knjige import sortirane_knjige, pretrazi_knjige, dodavanje_knjiga, brisanje_knjige, izmena_knjige
 from akcije.akcije import pretrazi_akcije, sortirane_akcije, dodavanje_akcije
-from Prodaja import prodaja_knjige, izvestaj_ukupna_prodaja, izvestaj_prodaja_akcija, izvestaj_autor
+from racun.Prodaja import prodaja_knjige, izvestaj
+
 
 def meni_administrator(ulogovani):
     print()
     print('***'*20)
     while True:
-        print("\n1. Sortiranje knjiga") #radi
-        print("2. Pretraga knjiga") #radi
-        print("3. Prikaz akcija")#radi
-        print("4. Pretraga akcija")#radi
-        print("5. Registracija korisnika") #radi
-        print("6. Lista korisnika")#radi
-        print("7. Dodaj knjigu")#radi
+        print("\n1. Sortiranje knjiga")
+        print("2. Pretraga knjiga")
+        print("3. Prikaz akcija")
+        print("4. Pretraga akcija")
+        print("5. Registracija korisnika")
+        print("6. Lista korisnika")
+        print("7. Dodaj knjigu")
         print("8. Izmeni knjigu")
         print("9. Obrisi knjigu")
         print("0. Kraj")
         print('***' * 20)
-        stavka = int(input("Izaberite stavku: "))
+        stavka = input("Izaberite stavku: ")
         print('***' * 20)
 
-        if stavka == 1:
+        if stavka == "1":
             sortirane_knjige(ulogovani)
-        elif stavka == 2:
-            pretrazi_knjige()
-        elif stavka == 3:
+        elif stavka == "2":
+            pretrazi_knjige(ulogovani)
+        elif stavka == "3":
             sortirane_akcije()
-        elif stavka == 4:
+        elif stavka == "4":
             pretrazi_akcije()
-        elif stavka == 5:
+        elif stavka == "5":
             registracija()
-        elif stavka == 6:
-            ispis_korisnika()
-        elif stavka == 7:
+        elif stavka == "6":
+            sortiranje_korisnika()
+        elif stavka == "7":
             dodavanje_knjiga()
-        elif stavka == 8:
+        elif stavka == "8":
             izmena_knjige()
-        elif stavka == 9:
+        elif stavka == "9":
             brisanje_knjige()
-        elif stavka == 0:
+        elif stavka == "0":
             return
         else:
             print("Pokusajte ponovo!")
+            meni_administrator(ulogovani)
 
 
 def meni_menadzer(ulogovani):
     print('\n')
     print('***' * 20)
     while True:
-        print(" 1. Sortiranje knjiga")#radi
-        print(" 2. Pretraga knjiga")#radi
-        print(" 3. Prikaz akcija")#radi
-        print(" 4. Pretraga akcija")#radi
-        print(" 5. Registracija akcija")#radi
-        print(" 6. Registracija korisnika")#radi
-        print(" 7. Lista korisnika")#radi
+        print(" 1. Sortiranje knjiga")
+        print(" 2. Pretraga knjiga")
+        print(" 3. Prikaz akcija")
+        print(" 4. Pretraga akcija")
+        print(" 5. Registracija akcija")
+        print(" 6. Registracija korisnika")
+        print(" 7. Lista korisnika")
         print(" 8. Kreiraj izvestaj")
         print(" 0. Kraj")
         print('***' * 20)
-        stavka = int(input("Izaberite stavku: "))
+        stavka = input("Izaberite stavku: ")
         print('***' * 20)
 
-        if stavka == 1:
+        if stavka == '1':
             sortirane_knjige(ulogovani)
-        elif stavka == 2:
-            pretrazi_knjige()
-        elif stavka == 3:
+        elif stavka == '2':
+            pretrazi_knjige(ulogovani)
+        elif stavka == '3':
             sortirane_akcije()
-        elif stavka == 4:
+        elif stavka == '4':
             pretrazi_akcije()
-        elif stavka == 5:
+        elif stavka == '5':
             dodavanje_akcije()
-        elif stavka == 6:
+        elif stavka == '6':
             registracija()
-        elif stavka == 7:
-            ispis_korisnika(korisnici)
-        elif stavka == 8:
-            izvestaj_autor()
-        elif stavka == 0:
+        elif stavka == '7':
+            sortiranje_korisnika()
+        elif stavka == '8':
+            izvestaj()
+        elif stavka == '0':
             return
         else:
             print("Pokusajte ponovo!")
+            meni_menadzer(ulogovani)
 
 
 def meni_prodavac(ulogovani_korisnik):
 
     print('***' * 20)
     while True:
-        print("\n1. Sortiranje knjiga")#radi
-        print("2. Pretraga knjiga")#radi
-        print("3. Prikaz akcija")#radi
-        print("4. Pretraga akcija")#radi
+        print("\n1. Sortiranje knjiga")
+        print("2. Pretraga knjiga")
+        print("3. Prikaz akcija")
+        print("4. Pretraga akcija")
         print("5. Prodaj knjigu")
-        print("6. Dodaj knjigu")#radi
+        print("6. Dodaj knjigu")
         print("7. Izmeni knjigu")
-        print("8. Obrisi knjigu(logicko brisanje)")
+        print("8. Obrisi knjigu")
         print("0. Kraj")
         print('***' * 20)
-        stavka = int(input("Izaberite stavku: "))
+        stavka = input("Izaberite stavku: ")
         print('***' * 20)
 
-        if stavka == 1:
+        if stavka == '1':
             sortirane_knjige(ulogovani_korisnik)
-        elif stavka == 2:
-            pretrazi_knjige()
-        elif stavka == 3:
+        elif stavka == '2':
+            pretrazi_knjige(ulogovani_korisnik)
+        elif stavka == '3':
             sortirane_akcije()
-        elif stavka == 4:
+        elif stavka == '4':
             pretrazi_akcije()
-        elif stavka == 5:
+        elif stavka == '5':
             prodaja_knjige(ulogovani_korisnik)
-        elif stavka == 6:
+        elif stavka == '6':
             dodavanje_knjiga()
-        elif stavka == 7:
+        elif stavka == '7':
             izmena_knjige()
-        elif stavka == 8:
+        elif stavka == '8':
             brisanje_knjige()
-        elif stavka == 0:
+        elif stavka == '0':
             return
         else:
             print("Pokusajte ponovo!")
+            meni_prodavac(ulogovani_korisnik)
 
 
 def main():

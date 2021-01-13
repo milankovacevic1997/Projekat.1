@@ -1,68 +1,187 @@
 [
     {
-        "sifra": 673,
+        "sifra": 677,
         "prodavac": "x",
-        "datum_vreme": "05.01.2021. 22:47:06",
-        "artikli": [],
-        "akcije": [
+        "datum_vreme": "13.01.2021. 09:47:59",
+        "artikli": [
             {
-                "sifra": 1112,
-                "artikli": [
-                    {
-                        "naslov": "Evgenije Onjegin",
-                        "cena": 1210.0,
-                        "nova cena": "1100.0"
-                    },
-                    {
-                        "naslov": "Dervis i smrt",
-                        "cena": 1550.0,
-                        "nova cena": "1100.0"
-                    }
-                ],
-                "datum_vazenja": "2021-02-05",
+                "sifra": 1113,
+                "naslov": "Ana Karenjina",
+                "autor": "Tolstoj",
+                "isbn": "456372839",
+                "izdavac": "Laguna",
+                "broj strana": "213",
+                "godina": 2020,
+                "cena": 1899.1,
+                "kategorija": "Roman",
+                "obrisano": "False",
                 "kolicina": "1"
             }
         ],
-        "cena": 2200.0
+        "akcije": [],
+        "cena": 1899.1
     },
     {
-        "sifra": 674,
+        "sifra": 678,
         "prodavac": "x",
-        "datum_vreme": "05.01.2021. 22:51:00",
+        "datum_vreme": "13.01.2021. 10:03:20",
         "artikli": [
             {
-                "sifra": 7,
-                "naslov": "Novi naslov",
-                "autor": "Ivo Andric",
-                "isbn": "444333",
-                "izdavac": "aaa",
-                "broj strana": 120,
-                "godina": 1990,
-                "cena": 1320.0,
-                "kategorija": "aa",
-                "obrisano": "True",
-                "kolicina": "7"
+                "sifra": 1114,
+                "naslov": "Evgenije Onjegin",
+                "autor": "Puskin",
+                "isbn": "13213213",
+                "izdavac": "Zavod ",
+                "broj strana": "123",
+                "godina": 2020,
+                "cena": 1210.0,
+                "kategorija": "Zbirka pesama",
+                "obrisano": "False",
+                "kolicina": "2"
+            },
+            {
+                "sifra": 1116,
+                "naslov": "Alhemicar",
+                "autor": "Koeljo",
+                "isbn": "3333",
+                "izdavac": "Mali Nemo",
+                "broj strana": 254,
+                "godina": 2009,
+                "cena": 1400.0,
+                "kategorija": "Roman",
+                "obrisano": "False",
+                "kolicina": "3"
+            },
+            {
+                "sifra": 1115,
+                "naslov": "Proces",
+                "autor": "Kafka",
+                "isbn": "22332233",
+                "izdavac": "Vulkan",
+                "broj strana": 130,
+                "godina": 2003,
+                "cena": 1030.0,
+                "kategorija": "Roman",
+                "obrisano": "False",
+                "kolicina": "1"
             }
         ],
         "akcije": [
             {
-                "sifra": 1112,
+                "sifra": 2,
                 "artikli": [
                     {
-                        "naslov": "Evgenije Onjegin",
-                        "cena": 1210.0,
-                        "nova cena": "1100.0"
+                        "sifra": 1112,
+                        "naslov": "Dervis i smrt",
+                        "autor": "Mesa Selimovic",
+                        "isbn": "8493927482",
+                        "izdavac": "Vulkan",
+                        "broj strana": "323",
+                        "godina": 2019,
+                        "cena": 1550.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "400"
                     },
                     {
-                        "naslov": "Dervis i smrt",
-                        "cena": 1550.0,
-                        "nova cena": "1100.0"
+                        "sifra": 11111,
+                        "naslov": "Alisa u zemlji cuda",
+                        "autor": "Luis Kerol",
+                        "isbn": "32123421",
+                        "izdavac": "Kontrast",
+                        "broj strana": 85,
+                        "godina": 2014,
+                        "cena": 980.0,
+                        "kategorija": "Decija knjiga",
+                        "obrisano": "False",
+                        "nova cena": "500"
                     }
                 ],
-                "datum_vazenja": "2021-02-05",
+                "datum_vazenja": "2021-04-15",
+                "kolicina": "2"
+            },
+            {
+                "sifra": 3,
+                "artikli": [
+                    {
+                        "sifra": 1118,
+                        "naslov": "Kada su cvetale tikve",
+                        "autor": "Mihajlovic",
+                        "isbn": "4443332",
+                        "izdavac": "Kontrast",
+                        "broj strana": 157,
+                        "godina": 2009,
+                        "cena": 799.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "480.0"
+                    },
+                    {
+                        "sifra": 1114,
+                        "naslov": "Evgenije Onjegin",
+                        "autor": "Puskin",
+                        "isbn": "13213213",
+                        "izdavac": "Zavod ",
+                        "broj strana": "123",
+                        "godina": 2020,
+                        "cena": 1210.0,
+                        "kategorija": "Zbirka pesama",
+                        "obrisano": "False",
+                        "nova cena": "600.0"
+                    }
+                ],
+                "datum_vazenja": "2021-03-03",
                 "kolicina": "2"
             }
         ],
-        "cena": 13640.0
+        "cena": 11610.0
+    },
+    {
+        "sifra": 679,
+        "prodavac": "Milan",
+        "datum_vreme": "13.01.2021. 10:22:31",
+        "artikli": [
+            {
+                "sifra": 1113,
+                "naslov": "Ana Karenjina",
+                "autor": "Tolstoj",
+                "isbn": "456372839",
+                "izdavac": "Laguna",
+                "broj strana": "213",
+                "godina": 2020,
+                "cena": 1899.1,
+                "kategorija": "Roman",
+                "obrisano": "False",
+                "kolicina": "1"
+            },
+            {
+                "sifra": 11113,
+                "naslov": "Breme",
+                "autor": "Agata Kristi",
+                "isbn": "9878660",
+                "izdavac": "BDR media",
+                "broj strana": 217,
+                "godina": 2019,
+                "cena": 500.0,
+                "kategorija": "Roman",
+                "obrisano": "False",
+                "kolicina": "1"
+            },
+            {
+                "sifra": 1116,
+                "naslov": "Alhemicar",
+                "autor": "Koeljo",
+                "isbn": "3333",
+                "izdavac": "Mali Nemo",
+                "broj strana": 254,
+                "godina": 2009,
+                "cena": 1400.0,
+                "kategorija": "Roman",
+                "obrisano": "False",
+                "kolicina": "1"
+            }
+        ],
+        "akcije": [],
+        "cena": 3799.1
     }
 ]

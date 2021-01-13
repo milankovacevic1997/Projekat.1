@@ -1,6 +1,6 @@
 [
     {
-        "sifra": 1,
+        "sifra": 1111,
         "naslov": "Na Drini cuprija",
         "autor": "Ivo Andric",
         "isbn": "38829274920",
@@ -12,7 +12,7 @@
         "obrisano": "False"
     },
     {
-        "sifra": 2,
+        "sifra": 1112,
         "naslov": "Dervis i smrt",
         "autor": "Mesa Selimovic",
         "isbn": "8493927482",
@@ -24,7 +24,7 @@
         "obrisano": "False"
     },
     {
-        "sifra": 3,
+        "sifra": 1113,
         "naslov": "Ana Karenjina",
         "autor": "Tolstoj",
         "isbn": "456372839",
@@ -36,7 +36,7 @@
         "obrisano": "False"
     },
     {
-        "sifra": 4,
+        "sifra": 1114,
         "naslov": "Evgenije Onjegin",
         "autor": "Puskin",
         "isbn": "13213213",
@@ -48,7 +48,7 @@
         "obrisano": "False"
     },
     {
-        "sifra": 5,
+        "sifra": 1115,
         "naslov": "Proces",
         "autor": "Kafka",
         "isbn": "22332233",
@@ -60,7 +60,7 @@
         "obrisano": "False"
     },
     {
-        "sifra": 6,
+        "sifra": 1116,
         "naslov": "Alhemicar",
         "autor": "Koeljo",
         "isbn": "3333",
@@ -72,7 +72,7 @@
         "obrisano": "False"
     },
     {
-        "sifra": 7,
+        "sifra": 1117,
         "naslov": "Gospodjica",
         "autor": "Ivo Andric",
         "isbn": "444333",
@@ -84,7 +84,7 @@
         "obrisano": "True"
     },
     {
-        "sifra": 8,
+        "sifra": 1118,
         "naslov": "Kada su cvetale tikve",
         "autor": "Mihajlovic",
         "isbn": "4443332",
@@ -96,7 +96,7 @@
         "obrisano": "False"
     },
     {
-        "sifra": 9,
+        "sifra": 1119,
         "naslov": "Jedini svedok",
         "autor": "Tes Geritsen",
         "isbn": "97886521",
@@ -108,7 +108,7 @@
         "obrisano": "False"
     },
     {
-        "sifra": 10,
+        "sifra": 11110,
         "naslov": "Preljuba",
         "autor": "Koeljo",
         "isbn": "321321",
@@ -118,5 +118,53 @@
         "cena": 1010.0,
         "kategorija": "Roman",
         "obrisano": "False"
+    },
+    {
+        "sifra": 11111,
+        "naslov": "Alisa u zemlji cuda",
+        "autor": "Luis Kerol",
+        "isbn": "32123421",
+        "izdavac": "Kontrast",
+        "broj strana": 85,
+        "godina": 2014,
+        "cena": 980.0,
+        "kategorija": "Decija knjiga",
+        "obrisano": "False"
+    },
+    {
+        "sifra": 11112,
+        "naslov": "Osnovi elektrotehnike",
+        "autor": "Dejana Herceg",
+        "isbn": "98786",
+        "izdavac": "Matica srpska",
+        "broj strana": 300,
+        "godina": 2019,
+        "cena": 900.0,
+        "kategorija": "Udzbenik",
+        "obrisano": "True"
+    },
+    {
+        "sifra": 11113,
+        "naslov": "Breme",
+        "autor": "Agata Kristi",
+        "isbn": "9878660",
+        "izdavac": "BDR media",
+        "broj strana": 217,
+        "godina": 2019,
+        "cena": 500.0,
+        "kategorija": "Roman",
+        "obrisano": "False"
+    },
+    {
+        "sifra": 11114,
+        "naslov": "b",
+        "autor": "b",
+        "isbn": "b",
+        "izdavac": "a",
+        "broj strana": 121,
+        "godina": 2011,
+        "cena": 200.0,
+        "kategorija": "a",
+        "obrisano": "True"
     }
 ]

@@ -1,6 +1,4 @@
 from knjige.knjigeIO import ucitaj_knjige, sacuvaj_knjige
-import re
-
 
 knjige = ucitaj_knjige()
 i = 0
@@ -32,6 +30,7 @@ def pretraga_knjiga_string(kljuc, vrednost):
     return filtrirane_knjige
 
 
+
 def pretraga_knjiga_jednakost(kljuc, vrednost):
     knjige = ucitaj_knjige()
     filtrirane_knjige = []
@@ -43,45 +42,45 @@ def pretraga_knjiga_jednakost(kljuc, vrednost):
     return filtrirane_knjige
 
 
-def pretrazi_knjige():
+def pretrazi_knjige(ulogovani):
     print('***' * 20)
     print("\n1. Pretraga po sifri")
     print("2. Pretraga po naslovu")
     print("3. Pretraga po kategoriji")
     print("4. Pretraga po autoru")
     print("5. Pretraga po izdavacu")
-    print("6. Pretraga po ceni")
+    print("6. Pretraga po opsegu cene") #ne radi
     print("0. Napusti pretragu")
     print('***' * 20)
-    stavka = int(input("Izaberite stavku: "))
+    stavka = input("Izaberite stavku: ")
     print('***' * 20)
     knjige = []
-    if stavka == 1:
+    if stavka == '1':
         sifra = int(input("Unesite sifru: "))
         knjige = pretraga_knjiga_jednakost("sifra", sifra)
-    elif stavka == 2:
+    elif stavka == '2':
         naslov = input("Unesite nalsov: ")
         knjige = pretraga_knjiga_string("naslov", naslov)
-    elif stavka == 3:
+    elif stavka == '3':
         kategorija = input("Unesite kategoriju: ")
         knjige = pretraga_knjiga_string("kategorija", kategorija)
-    elif stavka == 4:
+    elif stavka == '4':
         autor = input("Unesite autora: ")
         knjige = pretraga_knjiga_string("autor", autor)
-    elif stavka == 5:
+    elif stavka == '5':
         izdavac = input("Unesite izdavaca: ")
         knjige = pretraga_knjiga_string("izdavac", izdavac)
-    elif stavka == 6:
-        cena = input("Unesite cenu: ")
-        knjige = pretraga_knjiga_jednakost("autor", cena)
-    elif stavka == 0:
+    elif stavka == '6':
+        cenaMin = input("Unesite minimalnu cenu: ")
+        cenaMax = input("Unesite maksimalnu cenu: ")
+        knjige = pretraga_knjige_opseg_cene(cenaMin,cenaMax) #NE RADIII
+    elif stavka == '0':
         return
     else:
         print("Pogresan unos")
+        return
 
-    ispisi_knjige(knjige)
-
-
+    ispisi_knjige(knjige, ulogovani)
 
 def sortiraj_knjige(kljuc):
     knjige = ucitaj_knjige()
@@ -95,6 +94,12 @@ def sortiraj_knjige(kljuc):
 
     return knjige
 
+def pretraga_knjige_opseg_cene(cenaMin,cenaMax):
+    pronadjene = []
+    for knjiga in knjige:
+        if knjiga['cena']<=float(cenaMax) and knjiga['cena']>=float(cenaMin):
+            pronadjene.append(knjiga)
+    return pronadjene
 
 def sortirane_knjige(ulogovani):
     print('***' * 20)
@@ -106,31 +111,32 @@ def sortirane_knjige(ulogovani):
     print("6. Sortiraj po ceni")
     print("0. Izlaz")
     print('***' * 20)
-    stavka = int(input("Izaberite stavku: "))
+    stavka =input("Izaberite stavku: ")
     print('***' * 20)
     knjige = ucitaj_knjige()
-    if stavka == 1:
+    if stavka == '1':
         knjige = sortiraj_knjige("sifra")
 
-    elif stavka == 2:
+    elif stavka == '2':
         knjige = sortiraj_knjige("naslov")
 
-    elif stavka == 3:
+    elif stavka == '3':
         knjige = sortiraj_knjige("kategorija")
 
-    elif stavka == 4:
+    elif stavka == '4':
         knjige = sortiraj_knjige("autor")
 
-    elif stavka == 5:
+    elif stavka == '5':
         knjige = sortiraj_knjige("izdavac")
 
-    elif stavka == 6:
+    elif stavka == '6':
         knjige = sortiraj_knjige("cena")
 
-    elif stavka == 0:
+    elif stavka == '0':
         return
     else:
         print("Pogresan unos!")
+        return
     ispisi_knjige(knjige,ulogovani)
 
 def ispisi_knjige(knjige,ulogovani):
@@ -187,7 +193,8 @@ def  dodavanje_knjiga():
         "broj strana": "231",
         "godina": 2020,
         "cena": 650.0,
-        "kategorija": "Roman"
+        "kategorija": "Roman",
+        "obrisano": "False"
     }
     nova_knjiga['sifra'] = sifra
     nova_knjiga['naslov']= naslov
@@ -198,6 +205,7 @@ def  dodavanje_knjiga():
     nova_knjiga['godina']=godina
     nova_knjiga['cena']=cena
     nova_knjiga['kategorija']=kategorija
+    nova_knjiga['obrisano']='False'
 
     knjige.append(nova_knjiga)
     sacuvaj_knjige(knjige)
@@ -206,7 +214,7 @@ def  dodavanje_knjiga():
 
 def izmena_knjige():
     unos = 0
-    sifra = input("\n Unesi sifru knjige (unesi 'nazad' za povratak):")
+    sifra = input("\nUnesi sifru knjige (unesi 'nazad' za povratak):")
     i=0
 
     for knjiga in knjige:
@@ -220,16 +228,16 @@ def izmena_knjige():
     if unos==0:
         print("Knjiga nije pronadjena, pokusaj opet!")
 
-    naslov=input("\n Izmena naslova!")
+    naslov=input("\nIzmena naslova: ")
     if naslov!='':
         knjige[i]['naslov']=naslov
-    autor=input("\n Izmena autora!")
+    autor=input("\nIzmena autora: ")
     if autor!='':
         knjige[i]['autor']=autor
-    isbn=input("\n Izmena isbn!")
+    isbn=input("\nIzmena isbn: ")
     if isbn!='':
         knjige[i]['isbn']=isbn
-    izdavac=input("\n Izmena izdavaca!")
+    izdavac=input("\nIzmena izdavaca: ")
     if izdavac!='':
         knjige[i]['izdavac']=izdavac
     try:
@@ -238,17 +246,17 @@ def izmena_knjige():
     except ValueError:
         pass
     try:
-        godina=int(input("\nizmena godine:"))
+        godina=int(input("\nIzmena godine: "))
         knjige[i]['godina'] = godina
     except ValueError:
         pass
     try:
-        cena=float(input("\n Izmena cene!"))
+        cena=float(input("\nIzmena cene: "))
         knjige[i]['cena'] = cena
     except ValueError:
         pass
 
-    kategorija=input("\n Izmena kategorije!")
+    kategorija=input("\nIzmena kategorije: ")
     if kategorija!='':
         knjige[i]['kategorija'] = kategorija
     sacuvaj_knjige(knjige)

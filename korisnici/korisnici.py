@@ -1,5 +1,5 @@
 from korisnici.korisniciIO import ucitaj_korisnike, sacuvaj_korisnike
-import re,getpass
+import re
 
 korisnici=ucitaj_korisnike()
 n =len(korisnici)
@@ -11,20 +11,6 @@ def prijava():
         if korisnik['korisnicko_ime'] == korisncko_ime and korisnik['lozinka'] == lozinka:
             return korisnik
     return False
-
-def ispis_korisnika():
-    zaglavlje = f"{'ime':<20}" \
-                f"{'prezime':<20}" \
-                f"{'tip korisnika':<20}"
-
-    print(zaglavlje)
-    print("-" * len(zaglavlje))
-
-    for korisnik in korisnici:
-        za_ispis = f"{korisnik['ime']:<20}" \
-                   f"{korisnik['prezime']:<20}" \
-                   f"{korisnik['tip_korisnika']:<20}"
-        print(za_ispis)
 
 def unos_sa_proverom(poruka, naziv_unosa="Unos"):
     while True:
@@ -38,7 +24,7 @@ def unos_sa_proverom(poruka, naziv_unosa="Unos"):
         else:
             print(f"{naziv_unosa} ne sme biti prazan!")
 
-def registracija():
+def registracija(): #ispis tek registrovanog korisnika
     korisnici = ucitaj_korisnike()
     while True:
         korisnicko_ime = unos_sa_proverom("\nKorisnicko ime(upisite 'nazad' kako bi ste napustili registraciju): ",
@@ -93,3 +79,57 @@ def duzina_liste():
                     max < len(str(korisnici[j + 1][kljuc[i]]))
                 duzina[i] = max
 
+
+def sortiraj_korisnika (kljuc):
+        korisnik = ucitaj_korisnike()
+
+        for i in range(len(korisnik)):
+            for j in range(len(korisnik)):
+                if korisnik[i][kljuc] < korisnik[j][kljuc]:
+                    temp = korisnik[i]
+                    korisnik[i] = korisnik[j]
+                    korisnik[j] = temp
+
+        return korisnik
+
+def sortiranje_korisnika():
+    print('***' * 20)
+    print("1. Prikazi korisnike po imenu")
+    print("2. Prikazi korisnike po prezimenu")
+    print("3. Prikazi korisnike po tipu korisnika")
+    print("0. Izlaz")
+    print('***' * 20)
+    stavka = input("Izaberite stavku: ")
+    print('***' * 20)
+    korisnici = ucitaj_korisnike()
+    if stavka == '1':
+        korisnici = sortiraj_korisnika("ime")
+
+    elif stavka == '2':
+        korisnici = sortiraj_korisnika("prezime")
+
+    elif stavka == '3':
+        korisnici = sortiraj_korisnika("tip_korisnika")
+
+    elif stavka == '0':
+        return
+    else:
+        print("Pogresan unos!")
+        return
+    ispis_korisnika(korisnici)
+
+def ispis_korisnika(korisnici):
+    zaglavlje = f"{'ime':<20}" \
+                f"{'prezime':<20}" \
+                f"{'korisnicko ime':<20}" \
+                f"{'tip korisnika':<20}"
+
+    print(zaglavlje)
+    print("-" * len(zaglavlje))
+
+    for korisnik in korisnici:
+        za_ispis = f"{korisnik['ime']:<20}" \
+                   f"{korisnik['prezime']:<20}" \
+                   f"{korisnik['korisnicko_ime']:<20}" \
+                   f"{korisnik['tip_korisnika']:<20}"
+        print(za_ispis)

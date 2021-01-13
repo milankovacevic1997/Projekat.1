@@ -1,5 +1,6 @@
 from akcije.akcijeIO import ucitaj_akcije, sacuvaj_akcije
 from knjige.knjigeIO import ucitaj_knjige
+from datetime import datetime
 
 akcije=ucitaj_akcije()
 n=len(akcije)
@@ -36,36 +37,46 @@ def pretrazi_akcije():
     print('***' * 20)
     print("\n1. Pretraga po sifri")
     print("2. Pretraga po artiklu")
-    print("3. Pretraga po datumu vazenja")
+    print("3. Pretraga po autoru")
+    print("4. Pretraga po kategoriji")
     print("0. Napusti pretragu")
     print('***' * 20)
-    stavka = int(input("Izaberite stavku: "))
+    stavka = input("Izaberite stavku: ")
     print('***' * 20)
     akcije = []
-    if stavka == 1:
+    if stavka == '1':
         sifra = int(input("Unesite sifru: "))
         akcije = pretraga_akcija_jednakost("sifra", sifra)
-    elif stavka == 2:
+    elif stavka == '2':
         naslov = input("Unesite nalsov: ")
         akcije =pretraga_akcija_string("naslov", naslov)
-    elif stavka == 3:
-        datum_vazenja = input("Unesite datum vazenja: ")
-        akcije = pretraga_akcija_jednakost("datum_vazenja", datum_vazenja)
-    elif stavka == 4:
+    elif stavka == '3':
+        autor = input("Unesite autora: ")
+        akcije = pretraga_akcija_string("autor", autor)
+    elif stavka == '4':
         kategorija = input("Unesite kategoriju:")
         akcije = pretraga_akcija_string('kategorija', kategorija)
-    elif stavka==0:
+    elif stavka== '0':
         return
     else:
         print("Pogresan unos")
+        return
 
     ispisi_akcije(akcije)
 
 
-def sortiraj_akcije(kljuc):
+def sortiraj_akcije_sifra(kljuc):
     for i in range(len(akcije)):
         for j in range(len(akcije)):
             if akcije[i][kljuc] < akcije[j][kljuc]:
+                temp = akcije[i]
+                akcije[i] = akcije[j]
+                akcije[j] = temp
+
+def sortiraj_akcije_datum():
+    for i in range(len(akcije)):
+        for j in range(len(akcije)):
+            if datetime.strptime(akcije[i]['datum_vazenja'],'%Y-%m-%d') < datetime.strptime(akcije[j]['datum_vazenja'],'%Y-%m-%d'):
                 temp = akcije[i]
                 akcije[i] = akcije[j]
                 akcije[j] = temp
@@ -79,23 +90,24 @@ def sortirane_akcije():
     print("0. Izlaz")
     print('***' * 20)
 
-    stavka = int(input("Izaberite stavku: "))
+    stavka = input("Izaberite stavku: ")
     print('***' * 20)
-    if stavka == 1:
-        sortiraj_akcije("sifra")
+    if stavka == '1':
+        sortiraj_akcije_sifra("sifra")
 
-    elif stavka == 2:
-        sortiraj_akcije("datum_vazenja")
+    elif stavka == '2':
+        sortiraj_akcije_datum()
 
-    elif stavka == 0:
+    elif stavka == '0':
         return
     else:
         print("Pogresan unos!")
+        return
     ispisi_akcije(akcije)
 
 def ispisi_akcije(akcije):
         zaglavlje = f"{'sifra':<10}" \
-                    f"{'naslov':<20}" \
+                    f"{'naslov':<35}" \
                     f"{'stara cena':^20}" \
                     f"{'nova cena':^20}" \
                     f"{'datum vazenja':^20}"
@@ -103,14 +115,16 @@ def ispisi_akcije(akcije):
         print(zaglavlje)
         print("-" * len(zaglavlje))
         for i in range (0,len(akcije)):
-            for j in range (0,len(akcije[i]['artikli'])):
-                za_ispis = f"{akcije[i]['sifra']:<10}" \
-                           f"{akcije[i]['artikli'][j]['naslov']:<20}" \
-                           f"{akcije[i]['artikli'][j]['cena']:^20}" \
-                           f"{akcije[i]['artikli'][j]['nova cena']:^20}" \
-                           f"{akcije[i]['datum_vazenja']:^20}"
+            date_time_obj = datetime.strptime(akcije[i]['datum_vazenja'], '%Y-%m-%d')
+            if date_time_obj > datetime.now():
+                for j in range (0,len(akcije[i]['artikli'])):
+                    za_ispis = f"{akcije[i]['sifra']:<10}" \
+                               f"{akcije[i]['artikli'][j]['naslov']:<35}" \
+                               f"{akcije[i]['artikli'][j]['cena']:^20}" \
+                               f"{akcije[i]['artikli'][j]['nova cena']:^20}" \
+                               f"{akcije[i]['datum_vazenja']:^20}"
 
-                print(za_ispis)
+                    print(za_ispis)
 
 
 def  dodavanje_akcije():
