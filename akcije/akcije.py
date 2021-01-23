@@ -106,23 +106,23 @@ def sortirane_akcije():
     ispisi_akcije(akcije)
 
 def ispisi_akcije(akcije):
-        zaglavlje = f"{'sifra':<10}" \
-                    f"{'naslov':<35}" \
-                    f"{'stara cena':^20}" \
-                    f"{'nova cena':^20}" \
-                    f"{'datum vazenja':^20}"
+        zaglavlje = f"{'sifra             ':<10}" \
+                    f"{'naslov':<30}" \
+                    f"{'stara cena':<13}" \
+                    f"{'nova cena':^15}" \
+                    f"{'datum vazenja':>20}"
 
         print(zaglavlje)
         print("-" * len(zaglavlje))
+
         for i in range (0,len(akcije)):
             date_time_obj = datetime.strptime(akcije[i]['datum_vazenja'], '%Y-%m-%d')
             if date_time_obj > datetime.now():
+                print(akcije[i]['sifra'], " "*80, akcije[i]['datum_vazenja'])
                 for j in range (0,len(akcije[i]['artikli'])):
-                    za_ispis = f"{akcije[i]['sifra']:<10}" \
-                               f"{akcije[i]['artikli'][j]['naslov']:<35}" \
+                    za_ispis = f"{akcije[i]['artikli'][j]['naslov']:^40}" \
                                f"{akcije[i]['artikli'][j]['cena']:^20}" \
-                               f"{akcije[i]['artikli'][j]['nova cena']:^20}" \
-                               f"{akcije[i]['datum_vazenja']:^20}"
+                               f"{akcije[i]['artikli'][j]['nova cena']:^20}"
 
                     print(za_ispis)
 

@@ -157,7 +157,7 @@ def izvestaj():
     elif stavka == '2':
         print('\n')
         print('U nastavku se nalazi izvestaj ukupne prodaje akcija: ')
-        izvestaj_prodaja_akcija()
+        izvestaj_akcije()
     elif stavka == '3':
         print('\n')
         print('Izvestaj ukupne prodaje knjiga sortiranih u odnosu na autora: ')
@@ -201,6 +201,26 @@ def izvestaj_prodaja_akcija():
         for akcija in racun['akcije']:
             recnik[akcija['sifra']]+=int(akcija['kolicina'])
     print(recnik)
+
+def izvestaj_akcije():
+    sifra = input("Unesi sifru akcije: ")
+    recnik = {}
+    recnikCene = {}
+    for akcija in akcije:
+        if akcija['sifra']== sifra:
+            recnik[akcija[artikli['naslov']]] = 0
+            recnikCene[akcija[artikli['naslov']]] = 0
+    for racun in racuni:
+        for artikal in racun['artikli']:
+            if artikal['naslov'] in recnik.keys():
+                recnik[artikal['naslov']] +=int(artikal['kolicina'])
+                recnikCene[artikal['naslov']] += artikal['cena'] * int(artikal['kolicina'])
+        for akcija in racun['akcije']:
+            for artikal in akcija['artikli']:
+                if artikal['naslov'] in recnik.keys():
+                    recnik[artikal['naslov']]+=int(akcija['kolicina'])
+                    recnikCene[artikal['naslov']] += float(artikal['nova cena']) * int(akcija['kolicina'])
+    izvestaj_ukupne_akcije(recnik,recnikCene)
 
 def izvestaj_autor():
     autor = input("Unesi ime autora: ")
@@ -292,3 +312,32 @@ def izvestaj_ukupne_knjige(recnik, recnik2):
                         f"{recnik2[knjiga['naslov']]:^15}"
 
             print(za_ispis)
+
+def izvestaj_ukupne_akcije(recnik, recnik2):
+    akcije= ucitaj_akcije()
+    zaglavlje = f"{'sifra             ':<10}" \
+                 f"{'naslov':<30}" \
+                 f"{'stara cena':<13}" \
+                 f"{'nova cena':^15}" \
+                 f"{'datum vazenja':>25}" \
+                 f"{'kolicina':^10}" \
+                 f"{'zarada':^15}"
+
+    print(zaglavlje)
+    print("-" * len(zaglavlje))
+
+    for i in range(0, len(akcije)):
+         date_time_obj = datetime.strptime(akcije[i]['datum_vazenja'], '%Y-%m-%d')
+         if date_time_obj > datetime.now():
+             print(akcije[i]['sifra'], " " * 85, akcije[i]['datum_vazenja'])
+             for akcija in akcije:
+                for j in range(0, len(akcije[i]['artikli'])):
+                    if akcija[artikli['naslov']] in recnik.keys():
+                        za_ispis = f"{akcije[i]['artikli'][j]['naslov']:^40}" \
+                                   f"{akcije[i]['artikli'][j]['cena']:^20}" \
+                                   f"{akcije[i]['artikli'][j]['nova cena']:^20}"
+                        zarada = f"{recnik[akcije['naslov']]:^10}"\
+                                  f"{recnik2[akcije['naslov']]:^15}"
+
+                        print(za_ispis)
+                        print(zarada)
