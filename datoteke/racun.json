@@ -347,5 +347,291 @@
             }
         ],
         "cena": 3768.0
+    },
+    {
+        "sifra": 682,
+        "prodavac": "x",
+        "datum_vreme": "30.01.2021. 11:55:02",
+        "artikli": [
+            {
+                "sifra": 11111,
+                "naslov": "Alisa u zemlji cuda",
+                "autor": "Luis Kerol",
+                "isbn": "32123421",
+                "izdavac": "Kontrast",
+                "broj strana": 85,
+                "godina": 2014,
+                "cena": 980.0,
+                "kategorija": "Decija knjiga",
+                "obrisano": "False",
+                "kolicina": "1"
+            }
+        ],
+        "akcije": [
+            {
+                "sifra": 2,
+                "artikli": [
+                    {
+                        "sifra": 1112,
+                        "naslov": "Dervis i smrt",
+                        "autor": "Mesa Selimovic",
+                        "isbn": "8493927482",
+                        "izdavac": "Vulkan",
+                        "broj strana": "323",
+                        "godina": 2019,
+                        "cena": 1550.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "400"
+                    },
+                    {
+                        "sifra": 11111,
+                        "naslov": "Alisa u zemlji cuda",
+                        "autor": "Luis Kerol",
+                        "isbn": "32123421",
+                        "izdavac": "Kontrast",
+                        "broj strana": 85,
+                        "godina": 2014,
+                        "cena": 980.0,
+                        "kategorija": "Decija knjiga",
+                        "obrisano": "False",
+                        "nova cena": "500"
+                    }
+                ],
+                "datum_vazenja": "2021-04-15",
+                "kolicina": "1"
+            },
+            {
+                "sifra": 3,
+                "artikli": [
+                    {
+                        "sifra": 1118,
+                        "naslov": "Kada su cvetale tikve",
+                        "autor": "Mihajlovic",
+                        "isbn": "4443332",
+                        "izdavac": "Kontrast",
+                        "broj strana": 157,
+                        "godina": 2009,
+                        "cena": 799.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "480.0"
+                    },
+                    {
+                        "sifra": 1114,
+                        "naslov": "Evgenije Onjegin",
+                        "autor": "Puskin",
+                        "isbn": "13213213",
+                        "izdavac": "Zavod ",
+                        "broj strana": "123",
+                        "godina": 2020,
+                        "cena": 1210.0,
+                        "kategorija": "Zbirka pesama",
+                        "obrisano": "False",
+                        "nova cena": "600.0"
+                    }
+                ],
+                "datum_vazenja": "2021-03-03",
+                "kolicina": "2"
+            },
+            {
+                "sifra": 5,
+                "artikli": [
+                    {
+                        "sifra": 11113,
+                        "naslov": "Breme",
+                        "autor": "Agata Kristi",
+                        "isbn": "9878660",
+                        "izdavac": "BDR media",
+                        "broj strana": 217,
+                        "godina": 2019,
+                        "cena": 500.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "400.0"
+                    },
+                    {
+                        "sifra": 1111,
+                        "naslov": "Na Drini cuprija",
+                        "autor": "Ivo Andric",
+                        "isbn": "38829274920",
+                        "izdavac": "Vulkan",
+                        "broj strana": "231",
+                        "godina": 2020,
+                        "cena": 1000.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "550.0"
+                    }
+                ],
+                "datum_vazenja": "2022-01-07",
+                "kolicina": "1"
+            }
+        ],
+        "cena": 4990.0
+    },
+    {
+        "sifra": 683,
+        "prodavac": "x",
+        "datum_vreme": "05.02.2021. 23:04:23",
+        "artikli": [
+            {
+                "sifra": 1113,
+                "naslov": "Ana Karenjina",
+                "autor": "Tolstoj",
+                "isbn": "456372839",
+                "izdavac": "Laguna",
+                "broj strana": "213",
+                "godina": 2020,
+                "cena": 1899.1,
+                "kategorija": "Roman",
+                "obrisano": "False",
+                "kolicina": "3"
+            }
+        ],
+        "akcije": [
+            {
+                "sifra": 2,
+                "artikli": [
+                    {
+                        "sifra": 1112,
+                        "naslov": "Dervis i smrt",
+                        "autor": "Mesa Selimovic",
+                        "isbn": "8493927482",
+                        "izdavac": "Vulkan",
+                        "broj strana": "323",
+                        "godina": 2019,
+                        "cena": 1550.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "400"
+                    },
+                    {
+                        "sifra": 11111,
+                        "naslov": "Alisa u zemlji cuda",
+                        "autor": "Luis Kerol",
+                        "isbn": "32123421",
+                        "izdavac": "Kontrast",
+                        "broj strana": 85,
+                        "godina": 2014,
+                        "cena": 980.0,
+                        "kategorija": "Decija knjiga",
+                        "obrisano": "False",
+                        "nova cena": "500"
+                    }
+                ],
+                "datum_vazenja": "2021-04-15",
+                "kolicina": "3"
+            }
+        ],
+        "cena": 8397.3
+    },
+    {
+        "sifra": 684,
+        "prodavac": "x",
+        "datum_vreme": "06.02.2021. 17:02:42",
+        "artikli": [
+            {
+                "sifra": 11115,
+                "naslov": "A",
+                "autor": "A",
+                "isbn": "A",
+                "izdavac": "A",
+                "broj strana": 2,
+                "godina": 2020,
+                "cena": 2.0,
+                "kategorija": "Roman",
+                "obrisano": "False",
+                "kolicina": "2"
+            },
+            {
+                "sifra": 11111,
+                "naslov": "Alisa u zemlji cuda",
+                "autor": "Luis Kerol",
+                "isbn": "32123421",
+                "izdavac": "Kontrast",
+                "broj strana": 85,
+                "godina": 2014,
+                "cena": 980.0,
+                "kategorija": "Decija knjiga",
+                "obrisano": "False",
+                "kolicina": "1"
+            },
+            {
+                "sifra": 11113,
+                "naslov": "Breme",
+                "autor": "Agata Kristi",
+                "isbn": "9878660",
+                "izdavac": "BDR media",
+                "broj strana": 217,
+                "godina": 2019,
+                "cena": 500.0,
+                "kategorija": "Roman",
+                "obrisano": "False",
+                "kolicina": "2"
+            },
+            {
+                "sifra": 1119,
+                "naslov": "Jedini svedok",
+                "autor": "Tes Geritsen",
+                "isbn": "97886521",
+                "izdavac": "Laguna",
+                "broj strana": 325,
+                "godina": 2020,
+                "cena": 829.0,
+                "kategorija": "Roman",
+                "obrisano": "False",
+                "kolicina": "2"
+            }
+        ],
+        "akcije": [
+            {
+                "sifra": 4,
+                "artikli": [
+                    {
+                        "sifra": 1116,
+                        "naslov": "Alhemicar",
+                        "autor": "Koeljo",
+                        "isbn": "3333",
+                        "izdavac": "Mali Nemo",
+                        "broj strana": 254,
+                        "godina": 2009,
+                        "cena": 1400.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "500.0"
+                    },
+                    {
+                        "sifra": 1118,
+                        "naslov": "Kada su cvetale tikve",
+                        "autor": "Mihajlovic",
+                        "isbn": "4443332",
+                        "izdavac": "Kontrast",
+                        "broj strana": 157,
+                        "godina": 2009,
+                        "cena": 799.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "400.0"
+                    },
+                    {
+                        "sifra": 1112,
+                        "naslov": "Dervis i smrt",
+                        "autor": "Mesa Selimovic",
+                        "isbn": "8493927482",
+                        "izdavac": "Vulkan",
+                        "broj strana": "323",
+                        "godina": 2019,
+                        "cena": 1550.0,
+                        "kategorija": "Roman",
+                        "obrisano": "False",
+                        "nova cena": "300.0"
+                    }
+                ],
+                "datum_vazenja": "2022-05-04",
+                "kolicina": "1"
+            }
+        ],
+        "cena": 4842.0
     }
 ]

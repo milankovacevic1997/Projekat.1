@@ -1,26 +1,9 @@
 from knjige.knjigeIO import ucitaj_knjige, sacuvaj_knjige
 
 knjige = ucitaj_knjige()
-i = 0
-z = len(knjige)
-
-duzina = [1, 1, 1, 1, 1, 1, 1, 1, 1]
-
-kljuc = ['sifra', 'naslov', 'isbn', 'autor', 'izdavac', 'broj strana', 'godina', 'cena', 'kategorija']
-
-
-def duzina_liste2():
-    max = '1'
-    for i in range(9):
-        max = len(str(knjige[0][kljuc[i]]))
-        for j in range(z - 1):
-            if (max < len(str(knjige[i + 1][kljuc[i]]))):
-                max = len(str(knjige[j + 1][kljuc[i]]))
-        duzina[i] = max
 
 
 def pretraga_knjiga_string(kljuc, vrednost):
-    knjige = ucitaj_knjige()
     filtrirane_knjige = []
 
     for knjiga in knjige:
@@ -32,7 +15,6 @@ def pretraga_knjiga_string(kljuc, vrednost):
 
 
 def pretraga_knjiga_jednakost(kljuc, vrednost):
-    knjige = ucitaj_knjige()
     filtrirane_knjige = []
 
     for knjiga in knjige:
@@ -83,8 +65,6 @@ def pretrazi_knjige(ulogovani):
     ispisi_knjige(knjige, ulogovani)
 
 def sortiraj_knjige(kljuc):
-    knjige = ucitaj_knjige()
-
     for i in range(len(knjige)):
         for j in range(len(knjige)):
             if knjige[i][kljuc] < knjige[j][kljuc]:
@@ -172,9 +152,7 @@ def ispisi_knjige(knjige,ulogovani):
                 print(za_ispis)
 
 def  dodavanje_knjiga():
-    global sifra
-    for knjiga in knjige:
-        sifra=knjiga['sifra']
+    sifra=knjige[-1]['sifra']
     sifra+=1
     naslov=input('naslov:')
     autor=input('autor:')
@@ -185,32 +163,20 @@ def  dodavanje_knjiga():
     broj_strana=int(input('broj strana:'))
     kategorija=input('kategorija:')
     nova_knjiga={
-        "sifra": 3,
-        "naslov": "Knjiga 1",
-        "autor": "Pera Peric",
-        "isbn": "1312312312312",
-        "izdavac": "Vulkan",
-        "broj strana": "231",
-        "godina": 2020,
-        "cena": 650.0,
-        "kategorija": "Roman",
+        "sifra": sifra,
+        "naslov": naslov,
+        "autor": autor,
+        "isbn": isbn,
+        "izdavac": izdavac,
+        "broj strana":broj_strana,
+        "godina": int(godina),
+        "cena": float(cena),
+        "kategorija": kategorija,
         "obrisano": "False"
     }
-    nova_knjiga['sifra'] = sifra
-    nova_knjiga['naslov']= naslov
-    nova_knjiga['autor']=autor
-    nova_knjiga['isbn']=isbn
-    nova_knjiga['izdavac']=izdavac
-    nova_knjiga['broj strana']=broj_strana
-    nova_knjiga['godina']=godina
-    nova_knjiga['cena']=cena
-    nova_knjiga['kategorija']=kategorija
-    nova_knjiga['obrisano']='False'
-
     knjige.append(nova_knjiga)
     sacuvaj_knjige(knjige)
     print('%s je dodata u bazu podataka. Knjiga sifra=[%s]' %(nova_knjiga['naslov'], nova_knjiga['sifra']))
-    return False
 
 def izmena_knjige():
     unos = 0
@@ -227,6 +193,7 @@ def izmena_knjige():
         i+=1
     if unos==0:
         print("Knjiga nije pronadjena, pokusaj opet!")
+        return
 
     naslov=input("\nIzmena naslova: ")
     if naslov!='':
@@ -261,7 +228,6 @@ def izmena_knjige():
         knjige[i]['kategorija'] = kategorija
     sacuvaj_knjige(knjige)
     print('%s je izmenjena u bazi podataka. Knjiga sifra=[%s]' %(knjige[i]['naslov'], knjige[i]['sifra']))
-    return False
 
 def brisanje_knjige():
     sifra=input("\nUnesite sifru knjige koju zelite da obrisete (ukucajte 'nazad' za povratak):")

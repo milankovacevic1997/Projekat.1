@@ -24,8 +24,7 @@ def unos_sa_proverom(poruka, naziv_unosa="Unos"):
         else:
             print(f"{naziv_unosa} ne sme biti prazan!")
 
-def registracija(): #ispis tek registrovanog korisnika
-    korisnici = ucitaj_korisnike()
+def registracija():
     while True:
         korisnicko_ime = unos_sa_proverom("\nKorisnicko ime(upisite 'nazad' kako bi ste napustili registraciju): ",
                                           "Korisnicko ime")
@@ -37,7 +36,6 @@ def registracija(): #ispis tek registrovanog korisnika
                 postojece_korisnicko_ime = True
                 print("Korisnicko ime je vec zauzeto. Pokusajte drugo!")
                 break
-
         if postojece_korisnicko_ime == False:
             break
 
@@ -67,30 +65,14 @@ def registracija(): #ispis tek registrovanog korisnika
     sacuvaj_korisnike(korisnici)
     print("%s je REGISTROVAN dodat u korisnike bazu podatka.Tip korisnika=[%s]" % (novi_korsinik['korisnicko_ime'], novi_korsinik['tip_korisnika']))
 
-duzina=[1,1,1,1,1]
-kljuc=['korisnicko_ime','lozinka','ime','prezime','tip_korisnika']
-
-def duzina_liste():
-        max = '1'
-        for i in range(5):
-            max = len(str(korisnici[0][kljuc[i]]))
-            for j in range(1):
-                if max < len(str(korisnici[j + 1][kljuc[i]])):
-                    max < len(str(korisnici[j + 1][kljuc[i]]))
-                duzina[i] = max
-
-
 def sortiraj_korisnika (kljuc):
-        korisnik = ucitaj_korisnike()
-
-        for i in range(len(korisnik)):
-            for j in range(len(korisnik)):
-                if korisnik[i][kljuc] < korisnik[j][kljuc]:
-                    temp = korisnik[i]
-                    korisnik[i] = korisnik[j]
-                    korisnik[j] = temp
-
-        return korisnik
+    for i in range(len(korisnici)):
+        for j in range(len(korisnici)):
+            if korisnici[i][kljuc] < korisnici[j][kljuc]:
+                temp = korisnici[i]
+                korisnici[i] = korisnici[j]
+                korisnici[j] = temp
+    return korisnici
 
 def sortiranje_korisnika():
     print('***' * 20)

@@ -3,16 +3,13 @@ from knjige.knjigeIO import ucitaj_knjige
 from datetime import datetime
 
 akcije=ucitaj_akcije()
-n=len(akcije)
 knjige=ucitaj_knjige()
-
-kljuc = ['sifra', 'autor', 'kategorija', 'cena']
 
 def pretraga_akcija_string(kljuc, vrednost):
     filtrirane_akcije = []
-    if kljuc == 'sifra' or kljuc=="nova cena" or kljuc=="datum_vazenja":
+    if kljuc == 'sifra':
         for akcija in akcije:
-            if vrednost.lower() in akcija[kljuc].lower():
+            if int(vrednost) == akcija[kljuc]:
                 filtrirane_akcije.append(akcija)
     else:
         for akcija in akcije:
@@ -20,18 +17,6 @@ def pretraga_akcija_string(kljuc, vrednost):
                 if artikal[kljuc].lower() == vrednost.lower():
                     filtrirane_akcije.append(akcija)
     return filtrirane_akcije
-
-
-
-def pretraga_akcija_jednakost(kljuc,vrednost):
-    akcije=ucitaj_akcije()
-    filtritane_akcije=[]
-
-    for akcija in akcije:
-        if vrednost==akcija[kljuc]:
-            filtritane_akcije.append(akcija)
-    return filtritane_akcije
-
 
 def pretrazi_akcije():
     print('***' * 20)
@@ -46,7 +31,7 @@ def pretrazi_akcije():
     akcije = []
     if stavka == '1':
         sifra = int(input("Unesite sifru: "))
-        akcije = pretraga_akcija_jednakost("sifra", sifra)
+        akcije = pretraga_akcija_string("sifra", sifra)
     elif stavka == '2':
         naslov = input("Unesite nalsov: ")
         akcije =pretraga_akcija_string("naslov", naslov)
@@ -117,7 +102,7 @@ def ispisi_akcije(akcije):
 
         for i in range (0,len(akcije)):
             date_time_obj = datetime.strptime(akcije[i]['datum_vazenja'], '%Y-%m-%d')
-            if date_time_obj > datetime.now():
+            if date_time_obj >= datetime.now():
                 print(akcije[i]['sifra'], " "*80, akcije[i]['datum_vazenja'])
                 for j in range (0,len(akcije[i]['artikli'])):
                     za_ispis = f"{akcije[i]['artikli'][j]['naslov']:^40}" \
@@ -133,8 +118,7 @@ def  dodavanje_akcije():
       "artikli": [],
       "datum_vazenja": "27.12.2020."
     }
-    sifra = akcije[-1]['sifra']
-    nova_akcija['sifra'] = sifra + 1
+    nova_akcija['sifra'] = akcije[-1]['sifra'] + 1
     unos_knjiga = True
     while(unos_knjiga):
         sifra = input("\nUnesi sifru knjige (unesi 'nazad' za povratak u meni, unesi 'x' za prekid unosa knjiga): ")
@@ -144,11 +128,11 @@ def  dodavanje_akcije():
             unos_knjiga = False
         else:
             for knjiga in knjige:
-                if knjiga['sifra'] == int(sifra):
+                if knjiga['sifra'] == int(sifra) and knjiga['obrisano']== "False":
                     nova_cena = input("\nUnesi novu cenu knjige: ")
                     knjiga['nova cena'] = nova_cena
                     nova_akcija['artikli'].append(knjiga)
-    datum_vazenja = input("\nUnesi datum vazenja akije: ")
+    datum_vazenja = input("\nUnesi datum vazenja akcije (godina-mesec-dan): ")
     nova_akcija['datum_vazenja'] = datum_vazenja
     akcije.append(nova_akcija)
     sacuvaj_akcije(akcije)

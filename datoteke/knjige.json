@@ -157,14 +157,38 @@
     },
     {
         "sifra": 11114,
-        "naslov": "b",
-        "autor": "b",
+        "naslov": "B",
+        "autor": "B",
         "isbn": "b",
-        "izdavac": "a",
+        "izdavac": "B",
         "broj strana": 121,
         "godina": 2011,
         "cena": 200.0,
-        "kategorija": "a",
+        "kategorija": "B",
         "obrisano": "True"
+    },
+    {
+        "sifra": 11115,
+        "naslov": "A",
+        "autor": "A",
+        "isbn": "A",
+        "izdavac": "A",
+        "broj strana": 2,
+        "godina": 2020,
+        "cena": 2.0,
+        "kategorija": "Roman",
+        "obrisano": "False"
+    },
+    {
+        "sifra": 11116,
+        "naslov": "h",
+        "autor": "h",
+        "isbn": "h",
+        "izdavac": "h",
+        "broj strana": 3,
+        "godina": 2020,
+        "cena": 3.0,
+        "kategorija": "t",
+        "obrisano": "False"
     }
 ]

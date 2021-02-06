@@ -114,29 +114,7 @@ def ispis_akcija_racun(racun):
         print("-" * len(zaglavlje))
 
 def ispis_racun_ukupno(racun):
-    print("Ukupno: ", racun['cena'])
-
-
-
-def kraj_kupovine():
-    racuni = ucitaj_racun()
-    racun = pravljenje_racuna()
-    print('\nKnjige koje su odabrane su:')
-    ispis_knjiga_racun(racuni)
-    ispis_akcija_racun(racuni)
-    while True:
-        print('\nZelite li da nastavite?\n1. Da\n2. Odustani')
-        stavka = input('Unesite:')
-        if stavka == '1':
-            racuni.append(racun)
-            break
-        elif stavka == '2':
-            return False
-        else:
-            print('Pogresan unos.')
-    sacuvaj_racun(racuni)
-    print(racun)
-    return False
+    print("Ukupno: ", round(racun['cena'],2))
 
 def izvestaj():
     print('***' * 20)
@@ -203,24 +181,18 @@ def izvestaj_prodaja_akcija():
     print(recnik)
 
 def izvestaj_akcije():
-    sifra = input("Unesi sifru akcije: ")
-    recnik = {}
-    recnikCene = {}
-    for akcija in akcije:
-        if akcija['sifra']== sifra:
-            recnik[akcija[artikli['naslov']]] = 0
-            recnikCene[akcija[artikli['naslov']]] = 0
+    recnikKolicina = {}
+    recnikZarada = {}
     for racun in racuni:
-        for artikal in racun['artikli']:
-            if artikal['naslov'] in recnik.keys():
-                recnik[artikal['naslov']] +=int(artikal['kolicina'])
-                recnikCene[artikal['naslov']] += artikal['cena'] * int(artikal['kolicina'])
+        for akcija in racun['akcije']:
+            recnikKolicina[akcija['sifra']] = 0
+            recnikZarada[akcija['sifra']] = 0
+    for racun in racuni:
         for akcija in racun['akcije']:
             for artikal in akcija['artikli']:
-                if artikal['naslov'] in recnik.keys():
-                    recnik[artikal['naslov']]+=int(akcija['kolicina'])
-                    recnikCene[artikal['naslov']] += float(artikal['nova cena']) * int(akcija['kolicina'])
-    izvestaj_ukupne_akcije(recnik,recnikCene)
+                recnikKolicina[akcija['sifra']] += int(akcija['kolicina'])
+                recnikZarada[akcija['sifra']] += float(artikal['nova cena'])*int(akcija['kolicina'])
+    izvestaj_ukupne_akcije(recnikKolicina,recnikZarada)
 
 def izvestaj_autor():
     autor = input("Unesi ime autora: ")
@@ -288,12 +260,11 @@ def izvestaj_ukupne_knjige(recnik, recnik2):
         f"{'autor':<17}" \
         f"{'isbn':^12}" \
         f"{'izdavac':^15}" \
-        f"{'godina izdanja':^15}" \
-        f"{'broj strana':^15}" \
         f"{'cena':^20}" \
         f"{'kategorija':^15}" \
         f"{'kolicina':^10}" \
         f"{'zarada':^15}"
+
     print(zaglavlje)
     print("-" * len(zaglavlje))
 
@@ -304,40 +275,37 @@ def izvestaj_ukupne_knjige(recnik, recnik2):
                         f"{knjiga['autor']:<17}" \
                         f"{knjiga['isbn']:^12}" \
                         f"{knjiga['izdavac']:^15}" \
-                        f"{knjiga['godina']:^15}" \
-                        f"{knjiga['broj strana']:^15}" \
                         f"{knjiga['cena']:^20}" \
                         f"{knjiga['kategorija']:^15}" \
                         f"{recnik[knjiga['naslov']]:^10}" \
                         f"{recnik2[knjiga['naslov']]:^15}"
 
+
             print(za_ispis)
 
 def izvestaj_ukupne_akcije(recnik, recnik2):
-    akcije= ucitaj_akcije()
+
     zaglavlje = f"{'sifra             ':<10}" \
                  f"{'naslov':<30}" \
                  f"{'stara cena':<13}" \
                  f"{'nova cena':^15}" \
-                 f"{'datum vazenja':>25}" \
                  f"{'kolicina':^10}" \
-                 f"{'zarada':^15}"
+                 f"{'zarada':^15}"\
+                 f"{'datum vazenja':>25}"
 
     print(zaglavlje)
     print("-" * len(zaglavlje))
 
-    for i in range(0, len(akcije)):
-         date_time_obj = datetime.strptime(akcije[i]['datum_vazenja'], '%Y-%m-%d')
+    for akcija in akcije:
+         date_time_obj = datetime.strptime(akcija['datum_vazenja'], '%Y-%m-%d')
          if date_time_obj > datetime.now():
-             print(akcije[i]['sifra'], " " * 85, akcije[i]['datum_vazenja'])
-             for akcija in akcije:
-                for j in range(0, len(akcije[i]['artikli'])):
-                    if akcija[artikli['naslov']] in recnik.keys():
-                        za_ispis = f"{akcije[i]['artikli'][j]['naslov']:^40}" \
-                                   f"{akcije[i]['artikli'][j]['cena']:^20}" \
-                                   f"{akcije[i]['artikli'][j]['nova cena']:^20}"
-                        zarada = f"{recnik[akcije['naslov']]:^10}"\
-                                  f"{recnik2[akcije['naslov']]:^15}"
+             if akcija['sifra'] in recnik.keys():
+                 print(akcija['sifra'], " " * 110, akcija['datum_vazenja'])
+                 for j in range(0, len(akcija['artikli'])):
+                         za_ispis = f"{akcija['artikli'][j]['naslov']:^40}" \
+                                    f"{akcija['artikli'][j]['cena']:^20}" \
+                                    f"{akcija['artikli'][j]['nova cena']:^20}"
+                         zarada = f"{int(recnik[akcija['sifra']]) // int(len(akcija['artikli'])):^5}"\
+                                  f"{recnik2[akcija['sifra']] // int(len(akcija['artikli'])):^10}"
 
-                        print(za_ispis)
-                        print(zarada)
+                         print(za_ispis + zarada)
